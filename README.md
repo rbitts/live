@@ -9,6 +9,8 @@ MiniCPM-o 4.5 네이티브 Live와 한국어 Qwen 시스템 full-duplex를 비�
 
 **검증 상태는 [검증 기록](reports/status.md)을 따른다.** 코드 준비, GPU 모델 smoke, 실제 사람의 Live 사용 검증은 서로 다른 단계다. Qwen의 ASR는 발화 단위다. TTS는 문장 텍스트를 받아 8개 codec frame(약 640ms) 단위의 오디오로 전달한다.
 
+[한국어 Live 인터랙티브 설명서](docs/qwen-live-interactive.html): 파일을 내려받아 브라우저로 열면 일반 질문·끼어들기·장면 기억을 단계별로 볼 수 있다. 인터넷이나 모델 실행 없이 동작하는 설명용 문서다.
+
 ## 실행
 
 이 호스트의 준비된 환경에서는 저장소 루트에서 실행한다. 두 경로는 GPU 1을 공유하므로 동시에 실행하지 않는다.
