@@ -1,0 +1,17 @@
+{
+  "normal": {
+    "expected": "빨간 컵은 왼쪽에 있어요.",
+    "recognized": "빨간 컵은 왼쪽에 있어요.",
+    "passed": true
+  },
+  "interrupt": {
+    "expected": "흰색 컵은 오른쪽에 있어요.",
+    "recognized": "흰색 컵은 오른쪽에 있어요.",
+    "passed": true
+  },
+  "memory": {
+    "expected": "아까는 왼쪽에 있었어요. 지금 위치는 확인할 수 없어요.",
+    "recognized": "아까는 왼쪽에 있었어요. 지금 위치는 확인할 수 없어요.",
+    "passed": true
+  }
+}

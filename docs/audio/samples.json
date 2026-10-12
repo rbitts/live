@@ -1,0 +1,183 @@
+{
+  "created_at": "2026-10-12T08:02:10.214760+00:00",
+  "model": {
+    "repo": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+    "revision": "85e237c12c027371202489a0ec509ded67b5e4b5"
+  },
+  "speaker": "Sohee",
+  "seed": 0,
+  "initial_buffer_ms": 25,
+  "scope": "New TTS-only sample run; not the historical 1337ms trial, an end-to-end benchmark, or a physical speaker recording.",
+  "samples": {
+    "normal": {
+      "text": "빨간 컵은 왼쪽에 있어요.",
+      "sample_rate": 24000,
+      "chunks": [
+        {
+          "arrival_ms": 1905.289,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 2826.368,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 3782.397,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 4709.764,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 5689.943,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 6447.281,
+          "audio_ms": 480.0
+        }
+      ],
+      "gap_before_chunk_ms": [
+        0.0,
+        256.083,
+        316.042,
+        287.333,
+        340.208,
+        117.333
+      ],
+      "gap_total_ms": 1316.999,
+      "first_chunk_ms": 1905.289,
+      "continuous": {
+        "file": "normal-continuous.wav",
+        "seconds": 3.68,
+        "sha256": "66fe2415c2adccdd7f4c3b64442c3408c7ac92363d57e91db0ec1f2bf920888c"
+      },
+      "arrival_replay": {
+        "file": "normal-arrival-replay.wav",
+        "seconds": 4.997,
+        "sha256": "110b58dd2a257b9b62d9fc03ed957257d46328638b1e7cce483912a018ba3477"
+      }
+    },
+    "interrupt": {
+      "text": "흰색 컵은 오른쪽에 있어요.",
+      "sample_rate": 24000,
+      "chunks": [
+        {
+          "arrival_ms": 1014.536,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 1986.507,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 2913.914,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 3849.81,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 4645.524,
+          "audio_ms": 480.0
+        }
+      ],
+      "gap_before_chunk_ms": [
+        0.0,
+        306.958,
+        287.417,
+        295.917,
+        155.708
+      ],
+      "gap_total_ms": 1046.0,
+      "first_chunk_ms": 1014.536,
+      "continuous": {
+        "file": "interrupt-continuous.wav",
+        "seconds": 3.04,
+        "sha256": "ffdcf8f5498053d64da6b767e95436280ae04c83dbd919c3145695781ba7f36b"
+      },
+      "arrival_replay": {
+        "file": "interrupt-arrival-replay.wav",
+        "seconds": 4.086,
+        "sha256": "15402252b8f75ea64d82b865067e0f29768a556602fda3825931495ef0b78ed2"
+      }
+    },
+    "memory": {
+      "text": "아까는 왼쪽에 있었어요. 지금 위치는 확인할 수 없어요.",
+      "sample_rate": 24000,
+      "chunks": [
+        {
+          "arrival_ms": 1007.523,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 1950.663,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 2854.537,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 3800.087,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 4752.801,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 5632.885,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 6534.886,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 7458.267,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 8358.927,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 9261.192,
+          "audio_ms": 640.0
+        },
+        {
+          "arrival_ms": 9586.261,
+          "audio_ms": 160.0
+        }
+      ],
+      "gap_before_chunk_ms": [
+        0.0,
+        278.125,
+        263.875,
+        305.583,
+        312.708,
+        240.083,
+        262.0,
+        283.375,
+        260.667,
+        262.25,
+        0.0
+      ],
+      "gap_total_ms": 2468.666,
+      "first_chunk_ms": 1007.523,
+      "continuous": {
+        "file": "memory-continuous.wav",
+        "seconds": 6.56,
+        "sha256": "cfeb4a97ed6fa28796ee95622301790acc45c6f449c19047b627efd79331cecc"
+      },
+      "arrival_replay": {
+        "file": "memory-arrival-replay.wav",
+        "seconds": 9.029,
+        "sha256": "f620f93605a417be112a8a1d65b33641b62756800f7eabf79b33ababffdea2cc"
+      }
+    }
+  }
+}
