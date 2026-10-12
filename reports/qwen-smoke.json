@@ -23,133 +23,133 @@
     {
       "type": "ready",
       "track": "system-duplex",
-      "t": 0.014
+      "t": 0.015
     },
     {
       "type": "playback_stop",
       "epoch": 1,
-      "t": 1.027
+      "t": 1.036
     },
     {
       "type": "speech_started",
       "epoch": 1,
-      "t": 1.027
+      "t": 1.036
     },
     {
       "type": "speech_ended",
       "epoch": 1,
-      "t": 3.348
+      "t": 3.361
     },
     {
       "type": "transcript",
       "epoch": 1,
       "text": "빨간 컵은 어디에 있어요?",
-      "t": 3.673
+      "t": 3.686
     },
     {
       "type": "response_start",
       "epoch": 1,
-      "t": 3.673
+      "t": 3.686
     },
     {
       "type": "text",
       "epoch": 1,
       "text": "왼쪽이에요.\n",
-      "t": 4.777
+      "t": 4.8
     },
     {
       "type": "audio",
       "epoch": 1,
       "sample_rate": 24000,
-      "first_audio_ms": 2450,
-      "t": 5.805
+      "first_audio_ms": 2475,
+      "t": 5.842
     },
     {
       "type": "audio",
       "epoch": 1,
       "sample_rate": 24000,
       "first_audio_ms": null,
-      "t": 6.765
+      "t": 6.786
     },
     {
       "type": "playback_stop",
       "epoch": 2,
-      "t": 6.832
+      "t": 6.866
     },
     {
       "type": "speech_started",
       "epoch": 2,
-      "t": 6.832
+      "t": 6.866
     },
     {
       "type": "speech_ended",
       "epoch": 2,
-      "t": 9.174
+      "t": 9.197
     },
     {
       "type": "transcript",
       "epoch": 2,
       "text": "빨간 컵은 어디에 있어요?",
-      "t": 9.477
+      "t": 9.5
     },
     {
       "type": "response_start",
       "epoch": 2,
-      "t": 9.477
+      "t": 9.5
     },
     {
       "type": "text",
       "epoch": 2,
       "text": "빨간 컵은 왼쪽에 있어요.\n",
-      "t": 10.054
+      "t": 10.079
     },
     {
       "type": "audio",
       "epoch": 2,
       "sample_rate": 24000,
-      "first_audio_ms": 1874,
-      "t": 11.055
-    },
-    {
-      "type": "audio",
-      "epoch": 2,
-      "sample_rate": 24000,
-      "first_audio_ms": null,
-      "t": 12.007
+      "first_audio_ms": 1952,
+      "t": 11.155
     },
     {
       "type": "audio",
       "epoch": 2,
       "sample_rate": 24000,
       "first_audio_ms": null,
-      "t": 13.018
+      "t": 12.141
     },
     {
       "type": "audio",
       "epoch": 2,
       "sample_rate": 24000,
       "first_audio_ms": null,
-      "t": 14.033
+      "t": 13.107
     },
     {
       "type": "audio",
       "epoch": 2,
       "sample_rate": 24000,
       "first_audio_ms": null,
-      "t": 15.001
+      "t": 14.056
     },
     {
       "type": "audio",
       "epoch": 2,
       "sample_rate": 24000,
       "first_audio_ms": null,
-      "t": 15.286
+      "t": 14.974
+    },
+    {
+      "type": "audio",
+      "epoch": 2,
+      "sample_rate": 24000,
+      "first_audio_ms": null,
+      "t": 15.85
     },
     {
       "type": "response_done",
       "epoch": 2,
-      "elapsed_ms": 6113,
-      "t": 15.287
+      "elapsed_ms": 6654,
+      "t": 15.851
     }
   ],
   "workers": [
@@ -161,7 +161,7 @@
         "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0"
       },
       "busy": false,
-      "gpu_allocated_mb": 1507
+      "gpu_allocated_mb": 1506
     },
     {
       "role": "vlm",
@@ -181,14 +181,14 @@
         "revision": "85e237c12c027371202489a0ec509ded67b5e4b5"
       },
       "busy": false,
-      "gpu_allocated_mb": 2081
+      "gpu_allocated_mb": 2077
     }
   ],
-  "fixture_tts_seconds": 5.498617650999677,
+  "fixture_tts_seconds": 5.953057176000129,
   "asr": {
     "text": "빨간 컵은 어디에 있어요?"
   },
-  "server_barge_ack_ms": 1027.0,
+  "server_barge_ack_ms": 1023.3,
   "passed": true,
   "audio_chunks": 8,
   "limits": "Synthetic replay; no physical playback or human microphone/camera acceptance. Barge ack includes fixture leading silence."

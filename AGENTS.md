@@ -5,9 +5,9 @@
 - Two distinct tracks: MiniCPM-o 4.5 native duplex; Qwen ASR → Qwen3.5-4B → Qwen TTS system duplex. Never call the Qwen pipeline native duplex.
 - Use the external-dev profile. CPU tests use .venv; each model worker has its own .venv-* because Transformers pins conflict. Never mutate another project's environments.
 - Host: verify with scripts/doctor.py; two RTX 3090 24GB GPUs are expected but availability must be measured before every GPU run. Do not terminate unrelated GPU processes.
-- Default allocation: native GPU 1; Qwen ASR/TTS GPU 0, VLM GPU 1. Run the two tracks sequentially on this host. No paid/cloud resources without authorization.
+- Default allocation: native GPU 1; Qwen ASR GPU 0, VLM/TTS GPU 1. Run the two tracks sequentially on this host. No paid/cloud resources without authorization.
 - Model and upstream revisions live in configs/models.json and configs/upstreams.json. Do not silently move revisions. Weights/cache/audio/video/secrets must not enter git.
-- Native upstream is reused without local source edits. Dependency overrides require an explanation and a real inference smoke.
+- Native upstream is reused without local source edits. scripts/native_backend.py applies the official context-window API from configs/native.json; never disable it on this 24GB host without a bounded capacity test. Dependency overrides require an explanation and a real inference smoke.
 - Preserve continuous microphone capture during playback. Barge-in clears client playback immediately, invalidates the response epoch, cancels model generation cooperatively, and drops late results. Network input must not wait on inference.
 - Bound all media queues and buffers. Timestamp camera frames; do not use a stale frame as current evidence. Keep observed history separate from current view. Personalization is explicit and session scoped by default.
 - Server binds loopback; use SSH tunnels or authenticated TLS reverse proxy for remote access. Browser capture needs localhost or HTTPS. Do not expose unauthenticated model ports.

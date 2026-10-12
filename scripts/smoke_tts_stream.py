@@ -23,6 +23,13 @@ async def main():
         response.raise_for_status();recognized=response.json()['text']
         normalize=lambda s:re.sub(r'[^가-힣a-zA-Z0-9]','',s)
         report={'kind':'streamed-tts-roundtrip','text':expected,'recognized':recognized,'passed':normalize(expected)==normalize(recognized),'chunks':timings,'total_audio_seconds':samples/sr,'first_audio_ms':timings[0]['arrival_ms']}
+        end = timings[0]['arrival_ms'] + 25
+        gap = 0
+        for c in timings:
+            gap += max(0, c['arrival_ms']-end)
+            end = max(end, c['arrival_ms'])+c['audio_ms']
+        report['playback_gap_proxy_ms'] = round(gap, 1)
+        report['gap_measurement'] = 'Server arrival timing with 25ms initial buffer; not physical speaker measurement.'
         Path('reports/tts-stream.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
         print(json.dumps(report,ensure_ascii=False,indent=2))
         assert report['passed']

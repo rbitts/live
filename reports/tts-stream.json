@@ -5,30 +5,32 @@
   "passed": true,
   "chunks": [
     {
-      "arrival_ms": 1753.1,
+      "arrival_ms": 1888.5,
       "audio_ms": 640.0
     },
     {
-      "arrival_ms": 2512.8,
+      "arrival_ms": 2719.8,
       "audio_ms": 640.0
     },
     {
-      "arrival_ms": 3397.9,
+      "arrival_ms": 3725.4,
       "audio_ms": 640.0
     },
     {
-      "arrival_ms": 4327.7,
+      "arrival_ms": 4668.4,
       "audio_ms": 640.0
     },
     {
-      "arrival_ms": 5272.2,
+      "arrival_ms": 5649.0,
       "audio_ms": 640.0
     },
     {
-      "arrival_ms": 6019.7,
+      "arrival_ms": 6450.5,
       "audio_ms": 480.0
     }
   ],
   "total_audio_seconds": 3.68,
-  "first_audio_ms": 1753.1
+  "first_audio_ms": 1888.5,
+  "playback_gap_proxy_ms": 1337.0,
+  "gap_measurement": "Server arrival timing with 25ms initial buffer; not physical speaker measurement."
 }

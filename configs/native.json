@@ -1,0 +1,5 @@
+{
+  "sliding_window_mode": "basic",
+  "basic_window_high_tokens": 2000,
+  "basic_window_low_tokens": 1500
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "native-default-extended-replay",
+  "passed": false,
+  "completed_steps": 42,
+  "requested_steps": 150,
+  "reason": "CUDA out of memory at next prefill",
+  "allocated_gib": 22.93,
+  "reserved_unallocated_mib": 269.52,
+  "profile": "default unbounded context; 24GB RTX 3090"
+}

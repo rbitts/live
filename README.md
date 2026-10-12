@@ -20,7 +20,7 @@ MiniCPM-o 4.5 네이티브 Live와 한국어 Qwen 시스템 full-duplex를 비�
 # 1. Native: http://localhost:8006 에서 Omnimodal Full-Duplex 선택
 .venv/bin/python scripts/run.py native
 
-# Ctrl+C로 위 경로 종료 후, 2. Korean: http://localhost:8080
+# Ctrl+C 또는 python3 scripts/stop.py로 종료 후, 2. Korean: http://localhost:8080
 .venv/bin/python scripts/run.py qwen
 ```
 
@@ -32,9 +32,11 @@ ssh -L 8080:127.0.0.1:8080 -L 8006:127.0.0.1:8006 USER@HOST
 
 브라우저는 로컬 `http://localhost:8080` 또는 `http://localhost:8006`을 연다. 일반 HTTP 원격 IP에서는 카메라·마이크 접근이 제한된다. 외부 네트워크에 모델 포트를 공개하지 않는다.
 
+Codex가 실행해 둔 서버도 `python3 scripts/stop.py`로 종료할 수 있다. 이 도구는 등록된 Live 프로세스만 중단하며 PID 재사용을 검사한다.
+
 ## 새 호스트 준비
 
-Linux, NVIDIA 드라이버, Python용 uv, git이 필요하다. 이 호스트에서는 RTX 3090 24GB 두 장을 사용하며, native 공식 요구 조건은 VRAM >28GB이므로 장비별 capacity smoke를 수행한다. 설치/모델 다운로드는 수십 GB를 사용할 수 있다.
+Linux, NVIDIA 드라이버, Python용 uv, git이 필요하다. 이 호스트에서는 RTX 3090 24GB 두 장을 사용하며, native 공식 요구 조건은 VRAM >28GB이다. 이 24GB 호스트에서는 configs/native.json의 문맥 제한 프로필을 적용하며, 장비별 capacity smoke를 수행한다. 기본 무제한 문맥은 42초 이후 OOM이 발생했다. 설치/모델 다운로드는 수십 GB를 사용할 수 있다.
 
 ```bash
 python3 scripts/bootstrap.py --models

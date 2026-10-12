@@ -16,6 +16,7 @@ p.add_argument('track', choices=['qwen', 'native'])
 p.add_argument('--native-gpu', default='1')
 a = p.parse_args()
 children = []
+registry = ROOT/'.runtime/supervisor.json'
 logfiles = []
 runtime = ROOT/'.runtime'
 runtime.mkdir(exist_ok=True)
@@ -27,15 +28,18 @@ except BlockingIOError:
 probe = subprocess.check_output(['nvidia-smi', '--query-gpu=index,name,memory.free', '--format=csv,noheader,nounits'], text=True)
 print('GPU preflight:\n'+probe, flush=True)
 free = {line.split(',')[0].strip(): int(line.split(',')[-1].strip()) for line in probe.splitlines()}
-needed = {a.native_gpu: 22000} if a.track == 'native' else {'0': 6000, '1': 10000}
+needed = {a.native_gpu: 22000} if a.track == 'native' else {'0': 4000, '1': 15000}
 for gpu, minimum in needed.items():
     if free.get(gpu, 0) < minimum:
         sys.exit(f'GPU {gpu} requires at least {minimum} MiB free; no other processes will be stopped.')
+
+registry.write_text(json.dumps({'pid':os.getpid(),'track':a.track,'start_ticks':Path('/proc/self/stat').read_text().rsplit(') ',1)[1].split()[19]}))
 
 def start(name, cmd, gpu=None, cwd=ROOT):
     env = os.environ.copy()
     env.setdefault('OMP_NUM_THREADS', '4')
     env.setdefault('MKL_NUM_THREADS', '4')
+    env.setdefault('PYTORCH_CUDA_ALLOC_CONF', 'expandable_segments:True')
     if gpu is not None:
         env['CUDA_VISIBLE_DEVICES'] = gpu
     env['PYTHONPATH'] = str(cwd)
@@ -67,7 +71,7 @@ def stop(*_):
 signal.signal(signal.SIGTERM, stop)
 try:
     if a.track == 'qwen':
-        for role, port, gpu in [('asr',8101,'0'), ('tts',8103,'0'), ('vlm',8102,'1')]:
+        for role, port, gpu in [('asr',8101,'0'), ('tts',8103,'1'), ('vlm',8102,'1')]:
             start(role, [ROOT/f'.venv-{role}/bin/python', ROOT/'scripts/model_worker.py', role, '--port', str(port)], gpu)
         for port in [8101,8102,8103]:
             wait_ready(f'http://127.0.0.1:{port}/health')
@@ -83,7 +87,7 @@ try:
         config['recording'] = {'enabled': False}
         (upstream/'config.json').write_text(json.dumps(config, indent=2))
         python = ROOT/'.venv-native/bin/python'
-        start('native-backend', [python,'-m','py_backend.server','--host','127.0.0.1','--port','22500','--gpu-id','0'], a.native_gpu, upstream)
+        start('native-backend', [python,ROOT/'scripts/native_backend.py','--host','127.0.0.1','--port','22500','--gpu-id','0'], a.native_gpu, upstream)
         wait_ready('http://127.0.0.1:22500/health', 360)
         start('native-worker', [python,'worker.py','--host','127.0.0.1','--worker-index','0','--gpu-id','0','--backend-server-url','http://127.0.0.1:22500'], cwd=upstream)
         wait_ready('http://127.0.0.1:22400/health')
@@ -112,3 +116,5 @@ finally:
             process.wait()
     for logfile in logfiles:
         logfile.close()
+    if registry.exists() and json.loads(registry.read_text()).get('pid') == os.getpid():
+        registry.unlink()

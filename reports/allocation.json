@@ -1,0 +1,11 @@
+{
+  "profile": "external-dev",
+  "qwen_gpu_allocation": {
+    "asr": "0",
+    "tts": "1",
+    "vlm": "1"
+  },
+  "native_gpu": "1",
+  "tracks_run_sequentially": true,
+  "cpu_threads_per_worker": 4
+}

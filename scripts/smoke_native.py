@@ -20,7 +20,10 @@ p.add_argument('--report',default='native-smoke.json')
 args=p.parse_args()
 if not 15 <= args.seconds <= 280: p.error('--seconds must be between 15 and 280')
 
+report = {}
+
 async def main():
+    global report
     url='https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen3-ASR-Repo/asr_en.wav'
     data=await asyncio.to_thread(lambda:urllib.request.urlopen(url,timeout=30).read())
     wave,sr=sf.read(io.BytesIO(data),dtype='float32')
@@ -28,7 +31,7 @@ async def main():
     wave=np.interp(np.arange(0,len(wave),sr/16000),np.arange(len(wave)),wave).astype('<f4')
     image=Image.new('RGB',(640,480),'#b9a387');draw=ImageDraw.Draw(image);draw.rectangle((90,190,190,310),fill='red')
     buff=io.BytesIO();image.save(buff,format='JPEG');jpeg=base64.b64encode(buff.getvalue()).decode()
-    report={'kind':'native-paced-duplex-smoke','human_live_acceptance':False,'fixture_source':url,'model':json.loads((ROOT/'configs/models.json').read_text())['minicpm'],'results':[]}
+    report={'kind':'native-paced-duplex-smoke','human_live_acceptance':False,'native_profile':json.loads((ROOT/'configs/native.json').read_text()),'fixture_source':url,'model':json.loads((ROOT/'configs/models.json').read_text())['minicpm'],'results':[]}
     async with websockets.connect('ws://127.0.0.1:8006/v1/realtime?mode=video',max_size=16_000_000) as ws:
         async def until(kind,timeout=90):
             while True:
@@ -79,4 +82,9 @@ async def main():
     (ROOT/'reports'/args.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k not in ['results','model']},indent=2))
 
-asyncio.run(main())
+try:
+    asyncio.run(main())
+except Exception as exc:
+    report.update(model_smoke_passed=False, error_type=type(exc).__name__, error=str(exc))
+    (ROOT/'reports'/args.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    raise
