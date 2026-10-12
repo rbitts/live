@@ -1,0 +1,8 @@
+{
+  "kind": "real-tts-cancellation",
+  "cancel_to_release_ms": 138.3,
+  "inference_http_status": 200,
+  "worker_busy_after": false,
+  "passed": true,
+  "physical_playback_stop_tested": false
+}

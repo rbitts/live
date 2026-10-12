@@ -1,0 +1,1968 @@
+{
+  "kind": "native-paced-duplex-smoke",
+  "human_live_acceptance": false,
+  "fixture_source": "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen3-ASR-Repo/asr_en.wav",
+  "model": {
+    "repo": "openbmb/MiniCPM-o-4_5",
+    "revision": "503e754207c94da6bb26850b4469f367c9ea3582"
+  },
+  "results": [
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-0",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 157,
+        "generate_ms": 3.2303333282470703,
+        "cost_llm_ms": 3.1974315643310547,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 256.6,
+        "wall_clock_ms": 260.5,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 0,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 157,
+        "input_tokens": 157,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 23,
+          "audio_tokens": 70,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778164.4336977,
+      "audio_bytes": 0,
+      "wall_seconds": 0.282
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-1",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 236,
+        "generate_ms": 3.114461898803711,
+        "cost_llm_ms": 3.0863285064697266,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 246.1,
+        "wall_clock_ms": 249.7,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 1,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 234,
+        "input_tokens": 234,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 26,
+          "audio_tokens": 80,
+          "vision_tokens": 128
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778165.4167078,
+      "audio_bytes": 0,
+      "wall_seconds": 1.265
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-2",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 315,
+        "generate_ms": 3.0875205993652344,
+        "cost_llm_ms": 3.058910369873047,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 236.8,
+        "wall_clock_ms": 240.4,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 2,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 311,
+        "input_tokens": 311,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 29,
+          "audio_tokens": 90,
+          "vision_tokens": 192
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778166.4069366,
+      "audio_bytes": 0,
+      "wall_seconds": 2.255
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-3",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 394,
+        "generate_ms": 32.384634017944336,
+        "cost_llm_ms": 32.356977462768555,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 253.0,
+        "wall_clock_ms": 286.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 3,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 388,
+        "input_tokens": 388,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 32,
+          "audio_tokens": 100,
+          "vision_tokens": 256
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778167.452603,
+      "audio_bytes": 0,
+      "wall_seconds": 3.3
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-4",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 473,
+        "generate_ms": 5.244255065917969,
+        "cost_llm_ms": 5.213737487792969,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 238.4,
+        "wall_clock_ms": 244.1,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 4,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 465,
+        "input_tokens": 465,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 35,
+          "audio_tokens": 110,
+          "vision_tokens": 320
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778168.4120786,
+      "audio_bytes": 0,
+      "wall_seconds": 4.261
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-5",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 552,
+        "generate_ms": 5.568742752075195,
+        "cost_llm_ms": 5.526542663574219,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 248.0,
+        "wall_clock_ms": 254.1,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 5,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 542,
+        "input_tokens": 542,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 38,
+          "audio_tokens": 120,
+          "vision_tokens": 384
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778169.4219875,
+      "audio_bytes": 0,
+      "wall_seconds": 5.27
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-6",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 631,
+        "generate_ms": 5.23829460144043,
+        "cost_llm_ms": 5.2127838134765625,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 237.1,
+        "wall_clock_ms": 242.9,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 6,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 619,
+        "input_tokens": 619,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 41,
+          "audio_tokens": 130,
+          "vision_tokens": 448
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778170.4095922,
+      "audio_bytes": 0,
+      "wall_seconds": 6.257
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-7",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 710,
+        "generate_ms": 5.4473876953125,
+        "cost_llm_ms": 5.429983139038086,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 242.9,
+        "wall_clock_ms": 248.8,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 7,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 696,
+        "input_tokens": 696,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 44,
+          "audio_tokens": 140,
+          "vision_tokens": 512
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778171.4151473,
+      "audio_bytes": 0,
+      "wall_seconds": 7.263
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-8",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 789,
+        "generate_ms": 5.242109298706055,
+        "cost_llm_ms": 5.222320556640625,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 233.2,
+        "wall_clock_ms": 238.9,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 8,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 773,
+        "input_tokens": 773,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 47,
+          "audio_tokens": 150,
+          "vision_tokens": 576
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778172.4058397,
+      "audio_bytes": 0,
+      "wall_seconds": 8.254
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-9",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 868,
+        "generate_ms": 5.954980850219727,
+        "cost_llm_ms": 5.9356689453125,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 249.6,
+        "wall_clock_ms": 256.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 9,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 850,
+        "input_tokens": 850,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 50,
+          "audio_tokens": 160,
+          "vision_tokens": 640
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778173.4222538,
+      "audio_bytes": 0,
+      "wall_seconds": 9.27
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-10",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 947,
+        "generate_ms": 5.217552185058594,
+        "cost_llm_ms": 5.198478698730469,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 248.5,
+        "wall_clock_ms": 254.2,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 10,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 927,
+        "input_tokens": 927,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 53,
+          "audio_tokens": 170,
+          "vision_tokens": 704
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778174.420569,
+      "audio_bytes": 0,
+      "wall_seconds": 10.268
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-11",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1026,
+        "generate_ms": 5.333423614501953,
+        "cost_llm_ms": 5.315065383911133,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 246.8,
+        "wall_clock_ms": 252.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 11,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 1004,
+        "input_tokens": 1004,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 56,
+          "audio_tokens": 180,
+          "vision_tokens": 768
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778175.4180226,
+      "audio_bytes": 0,
+      "wall_seconds": 11.266
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-12",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1105,
+        "generate_ms": 5.264759063720703,
+        "cost_llm_ms": 5.237102508544922,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 251.1,
+        "wall_clock_ms": 256.8,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 12,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 1081,
+        "input_tokens": 1081,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 59,
+          "audio_tokens": 190,
+          "vision_tokens": 832
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778176.4233153,
+      "audio_bytes": 0,
+      "wall_seconds": 12.271
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-13",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1184,
+        "generate_ms": 5.87153434753418,
+        "cost_llm_ms": 5.844831466674805,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 251.0,
+        "wall_clock_ms": 257.4,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 13,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 1158,
+        "input_tokens": 1158,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 62,
+          "audio_tokens": 200,
+          "vision_tokens": 896
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778177.4231303,
+      "audio_bytes": 0,
+      "wall_seconds": 13.271
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "listen",
+      "session_id": "sess_8424349d4b01",
+      "input_id": "chunk-14",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1263,
+        "generate_ms": 5.287408828735352,
+        "cost_llm_ms": 5.26738166809082,
+        "n_tokens": 0,
+        "n_tts_tokens": 0,
+        "prefill_ms": 275.8,
+        "wall_clock_ms": 282.2,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 14,
+      "chunk_usage": {
+        "total_tokens": 77,
+        "input_tokens": 77,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "usage": {
+        "total_tokens": 1235,
+        "input_tokens": 1235,
+        "output_tokens": 0,
+        "input_token_details": {
+          "text_tokens": 65,
+          "audio_tokens": 210,
+          "vision_tokens": 960
+        },
+        "output_token_details": {
+          "text_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "server_send_ts": 1791778178.4601045,
+      "audio_bytes": 0,
+      "wall_seconds": 14.308
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-15",
+      "text": " Yeah, it sounds",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1347,
+        "generate_ms": 601.6781330108643,
+        "cost_llm_ms": 202.02207565307617,
+        "cost_tts_prep_ms": 0.8335113525390625,
+        "cost_tts_ms": 143.55731010437012,
+        "cost_token2wav_ms": 255.94305992126465,
+        "n_tokens": 4,
+        "n_tts_tokens": 8,
+        "prefill_ms": 249.2,
+        "wall_clock_ms": 851.4,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 15,
+      "chunk_usage": {
+        "total_tokens": 89,
+        "input_tokens": 77,
+        "output_tokens": 12,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 8
+        }
+      },
+      "usage": {
+        "total_tokens": 1324,
+        "input_tokens": 1312,
+        "output_tokens": 12,
+        "input_token_details": {
+          "text_tokens": 68,
+          "audio_tokens": 220,
+          "vision_tokens": 1024
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 8
+        }
+      },
+      "server_send_ts": 1791778180.0219202,
+      "audio_bytes": 0,
+      "wall_seconds": 17.106
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-15",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1347,
+        "generate_ms": 601.6781330108643,
+        "cost_llm_ms": 202.02207565307617,
+        "cost_tts_prep_ms": 0.8335113525390625,
+        "cost_tts_ms": 143.55731010437012,
+        "cost_token2wav_ms": 255.94305992126465,
+        "n_tokens": 4,
+        "n_tts_tokens": 8,
+        "prefill_ms": 249.2,
+        "wall_clock_ms": 851.4,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778180.0221334,
+      "audio_bytes": 96000,
+      "wall_seconds": 17.108
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-16",
+      "text": " like his career took",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1431,
+        "generate_ms": 793.5690879821777,
+        "cost_llm_ms": 211.67349815368652,
+        "cost_tts_prep_ms": 1.0116100311279297,
+        "cost_tts_ms": 405.383825302124,
+        "cost_token2wav_ms": 176.26237869262695,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 254.9,
+        "wall_clock_ms": 1049.1,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 16,
+      "chunk_usage": {
+        "total_tokens": 106,
+        "input_tokens": 77,
+        "output_tokens": 29,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 1430,
+        "input_tokens": 1389,
+        "output_tokens": 41,
+        "input_token_details": {
+          "text_tokens": 71,
+          "audio_tokens": 230,
+          "vision_tokens": 1088
+        },
+        "output_token_details": {
+          "text_tokens": 8,
+          "audio_tokens": 33
+        }
+      },
+      "server_send_ts": 1791778182.317447,
+      "audio_bytes": 0,
+      "wall_seconds": 18.165
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-16",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1431,
+        "generate_ms": 793.5690879821777,
+        "cost_llm_ms": 211.67349815368652,
+        "cost_tts_prep_ms": 1.0116100311279297,
+        "cost_tts_ms": 405.383825302124,
+        "cost_token2wav_ms": 176.26237869262695,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 254.9,
+        "wall_clock_ms": 1049.1,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778182.3177044,
+      "audio_bytes": 96000,
+      "wall_seconds": 18.186
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-17",
+      "text": " a big turn when",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1515,
+        "generate_ms": 747.8008270263672,
+        "cost_llm_ms": 202.01396942138672,
+        "cost_tts_prep_ms": 0.7109642028808594,
+        "cost_tts_ms": 407.05132484436035,
+        "cost_token2wav_ms": 138.5483741760254,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 250.8,
+        "wall_clock_ms": 999.2,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 17,
+      "chunk_usage": {
+        "total_tokens": 106,
+        "input_tokens": 77,
+        "output_tokens": 29,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 1536,
+        "input_tokens": 1466,
+        "output_tokens": 70,
+        "input_token_details": {
+          "text_tokens": 74,
+          "audio_tokens": 240,
+          "vision_tokens": 1152
+        },
+        "output_token_details": {
+          "text_tokens": 12,
+          "audio_tokens": 58
+        }
+      },
+      "server_send_ts": 1791778183.367466,
+      "audio_bytes": 0,
+      "wall_seconds": 19.216
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-17",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1515,
+        "generate_ms": 747.8008270263672,
+        "cost_llm_ms": 202.01396942138672,
+        "cost_tts_prep_ms": 0.7109642028808594,
+        "cost_tts_ms": 407.05132484436035,
+        "cost_token2wav_ms": 138.5483741760254,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 250.8,
+        "wall_clock_ms": 999.2,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778183.3677638,
+      "audio_bytes": 96000,
+      "wall_seconds": 19.238
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-18",
+      "text": " he started writing for",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1599,
+        "generate_ms": 707.1433067321777,
+        "cost_llm_ms": 198.97699356079102,
+        "cost_tts_prep_ms": 0.48351287841796875,
+        "cost_tts_ms": 397.01318740844727,
+        "cost_token2wav_ms": 110.98670959472656,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 253.8,
+        "wall_clock_ms": 961.9,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 18,
+      "chunk_usage": {
+        "total_tokens": 106,
+        "input_tokens": 77,
+        "output_tokens": 29,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 1642,
+        "input_tokens": 1543,
+        "output_tokens": 99,
+        "input_token_details": {
+          "text_tokens": 77,
+          "audio_tokens": 250,
+          "vision_tokens": 1216
+        },
+        "output_token_details": {
+          "text_tokens": 16,
+          "audio_tokens": 83
+        }
+      },
+      "server_send_ts": 1791778184.3727953,
+      "audio_bytes": 0,
+      "wall_seconds": 20.221
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-18",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1599,
+        "generate_ms": 707.1433067321777,
+        "cost_llm_ms": 198.97699356079102,
+        "cost_tts_prep_ms": 0.48351287841796875,
+        "cost_tts_ms": 397.01318740844727,
+        "cost_token2wav_ms": 110.98670959472656,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 253.8,
+        "wall_clock_ms": 961.9,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778184.3729877,
+      "audio_bytes": 96000,
+      "wall_seconds": 20.242
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-19",
+      "text": " others. I",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1682,
+        "generate_ms": 673.5293865203857,
+        "cost_llm_ms": 163.99836540222168,
+        "cost_tts_prep_ms": 0.6043910980224609,
+        "cost_tts_ms": 392.96913146972656,
+        "cost_token2wav_ms": 116.38712882995605,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 236.5,
+        "wall_clock_ms": 910.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 19,
+      "chunk_usage": {
+        "total_tokens": 105,
+        "input_tokens": 77,
+        "output_tokens": 28,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 1747,
+        "input_tokens": 1620,
+        "output_tokens": 127,
+        "input_token_details": {
+          "text_tokens": 80,
+          "audio_tokens": 260,
+          "vision_tokens": 1280
+        },
+        "output_token_details": {
+          "text_tokens": 19,
+          "audio_tokens": 108
+        }
+      },
+      "server_send_ts": 1791778185.327226,
+      "audio_bytes": 0,
+      "wall_seconds": 21.175
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-19",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1682,
+        "generate_ms": 673.5293865203857,
+        "cost_llm_ms": 163.99836540222168,
+        "cost_tts_prep_ms": 0.6043910980224609,
+        "cost_tts_ms": 392.96913146972656,
+        "cost_token2wav_ms": 116.38712882995605,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 236.5,
+        "wall_clock_ms": 910.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778185.3274496,
+      "audio_bytes": 96000,
+      "wall_seconds": 21.197
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-20",
+      "text": " mean, sometimes",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1765,
+        "generate_ms": 697.8163719177246,
+        "cost_llm_ms": 212.07070350646973,
+        "cost_tts_prep_ms": 0.46706199645996094,
+        "cost_tts_ms": 381.36816024780273,
+        "cost_token2wav_ms": 104.21562194824219,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 252.4,
+        "wall_clock_ms": 950.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 20,
+      "chunk_usage": {
+        "total_tokens": 105,
+        "input_tokens": 77,
+        "output_tokens": 28,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 1852,
+        "input_tokens": 1697,
+        "output_tokens": 155,
+        "input_token_details": {
+          "text_tokens": 83,
+          "audio_tokens": 270,
+          "vision_tokens": 1344
+        },
+        "output_token_details": {
+          "text_tokens": 22,
+          "audio_tokens": 133
+        }
+      },
+      "server_send_ts": 1791778186.322361,
+      "audio_bytes": 0,
+      "wall_seconds": 22.17
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-20",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1765,
+        "generate_ms": 697.8163719177246,
+        "cost_llm_ms": 212.07070350646973,
+        "cost_tts_prep_ms": 0.46706199645996094,
+        "cost_tts_ms": 381.36816024780273,
+        "cost_token2wav_ms": 104.21562194824219,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 252.4,
+        "wall_clock_ms": 950.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778186.3236992,
+      "audio_bytes": 96000,
+      "wall_seconds": 22.192
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-21",
+      "text": " solo",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1846,
+        "generate_ms": 584.61594581604,
+        "cost_llm_ms": 89.42866325378418,
+        "cost_tts_prep_ms": 0.4355907440185547,
+        "cost_tts_ms": 382.05528259277344,
+        "cost_token2wav_ms": 112.98060417175293,
+        "n_tokens": 1,
+        "n_tts_tokens": 25,
+        "prefill_ms": 245.0,
+        "wall_clock_ms": 830.1,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 21,
+      "chunk_usage": {
+        "total_tokens": 103,
+        "input_tokens": 77,
+        "output_tokens": 26,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 1,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 1955,
+        "input_tokens": 1774,
+        "output_tokens": 181,
+        "input_token_details": {
+          "text_tokens": 86,
+          "audio_tokens": 280,
+          "vision_tokens": 1408
+        },
+        "output_token_details": {
+          "text_tokens": 23,
+          "audio_tokens": 158
+        }
+      },
+      "server_send_ts": 1791778187.1956856,
+      "audio_bytes": 0,
+      "wall_seconds": 23.043
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-21",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1846,
+        "generate_ms": 584.61594581604,
+        "cost_llm_ms": 89.42866325378418,
+        "cost_tts_prep_ms": 0.4355907440185547,
+        "cost_tts_ms": 382.05528259277344,
+        "cost_token2wav_ms": 112.98060417175293,
+        "n_tokens": 1,
+        "n_tts_tokens": 25,
+        "prefill_ms": 245.0,
+        "wall_clock_ms": 830.1,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778187.1958737,
+      "audio_bytes": 96000,
+      "wall_seconds": 23.066
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-22",
+      "text": " stuff doesn't always",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1930,
+        "generate_ms": 720.3600406646729,
+        "cost_llm_ms": 211.29941940307617,
+        "cost_tts_prep_ms": 0.4413127899169922,
+        "cost_tts_ms": 400.9137153625488,
+        "cost_token2wav_ms": 107.97262191772461,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 252.2,
+        "wall_clock_ms": 973.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 22,
+      "chunk_usage": {
+        "total_tokens": 106,
+        "input_tokens": 77,
+        "output_tokens": 29,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2061,
+        "input_tokens": 1851,
+        "output_tokens": 210,
+        "input_token_details": {
+          "text_tokens": 89,
+          "audio_tokens": 290,
+          "vision_tokens": 1472
+        },
+        "output_token_details": {
+          "text_tokens": 27,
+          "audio_tokens": 183
+        }
+      },
+      "server_send_ts": 1791778188.2179902,
+      "audio_bytes": 0,
+      "wall_seconds": 24.066
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-22",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 1930,
+        "generate_ms": 720.3600406646729,
+        "cost_llm_ms": 211.29941940307617,
+        "cost_tts_prep_ms": 0.4413127899169922,
+        "cost_tts_ms": 400.9137153625488,
+        "cost_token2wav_ms": 107.97262191772461,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 252.2,
+        "wall_clock_ms": 973.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778188.2181888,
+      "audio_bytes": 96000,
+      "wall_seconds": 24.086
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-23",
+      "text": " hit the mark right",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2014,
+        "generate_ms": 753.3152103424072,
+        "cost_llm_ms": 220.65472602844238,
+        "cost_tts_prep_ms": 0.545501708984375,
+        "cost_tts_ms": 408.67114067077637,
+        "cost_token2wav_ms": 123.81529808044434,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 305.8,
+        "wall_clock_ms": 1059.7,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 23,
+      "chunk_usage": {
+        "total_tokens": 106,
+        "input_tokens": 77,
+        "output_tokens": 29,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2167,
+        "input_tokens": 1928,
+        "output_tokens": 239,
+        "input_token_details": {
+          "text_tokens": 92,
+          "audio_tokens": 300,
+          "vision_tokens": 1536
+        },
+        "output_token_details": {
+          "text_tokens": 31,
+          "audio_tokens": 208
+        }
+      },
+      "server_send_ts": 1791778189.3204472,
+      "audio_bytes": 0,
+      "wall_seconds": 25.169
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-23",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2014,
+        "generate_ms": 753.3152103424072,
+        "cost_llm_ms": 220.65472602844238,
+        "cost_tts_prep_ms": 0.545501708984375,
+        "cost_tts_ms": 408.67114067077637,
+        "cost_token2wav_ms": 123.81529808044434,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 305.8,
+        "wall_clock_ms": 1059.7,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778189.3206692,
+      "audio_bytes": 96000,
+      "wall_seconds": 25.19
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-24",
+      "text": " away,",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2096,
+        "generate_ms": 670.4409122467041,
+        "cost_llm_ms": 132.09056854248047,
+        "cost_tts_prep_ms": 0.5359649658203125,
+        "cost_tts_ms": 424.6556758880615,
+        "cost_token2wav_ms": 113.53015899658203,
+        "n_tokens": 2,
+        "n_tts_tokens": 25,
+        "prefill_ms": 261.5,
+        "wall_clock_ms": 932.4,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 24,
+      "chunk_usage": {
+        "total_tokens": 104,
+        "input_tokens": 77,
+        "output_tokens": 27,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 2,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2271,
+        "input_tokens": 2005,
+        "output_tokens": 266,
+        "input_token_details": {
+          "text_tokens": 95,
+          "audio_tokens": 310,
+          "vision_tokens": 1600
+        },
+        "output_token_details": {
+          "text_tokens": 33,
+          "audio_tokens": 233
+        }
+      },
+      "server_send_ts": 1791778190.296377,
+      "audio_bytes": 0,
+      "wall_seconds": 26.144
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-24",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2096,
+        "generate_ms": 670.4409122467041,
+        "cost_llm_ms": 132.09056854248047,
+        "cost_tts_prep_ms": 0.5359649658203125,
+        "cost_tts_ms": 424.6556758880615,
+        "cost_token2wav_ms": 113.53015899658203,
+        "n_tokens": 2,
+        "n_tts_tokens": 25,
+        "prefill_ms": 261.5,
+        "wall_clock_ms": 932.4,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778190.2965918,
+      "audio_bytes": 96000,
+      "wall_seconds": 26.165
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-25",
+      "text": " but when you",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2179,
+        "generate_ms": 708.4217071533203,
+        "cost_llm_ms": 183.75730514526367,
+        "cost_tts_prep_ms": 0.6268024444580078,
+        "cost_tts_ms": 408.39481353759766,
+        "cost_token2wav_ms": 116.10960960388184,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 263.2,
+        "wall_clock_ms": 972.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 25,
+      "chunk_usage": {
+        "total_tokens": 105,
+        "input_tokens": 77,
+        "output_tokens": 28,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2376,
+        "input_tokens": 2082,
+        "output_tokens": 294,
+        "input_token_details": {
+          "text_tokens": 98,
+          "audio_tokens": 320,
+          "vision_tokens": 1664
+        },
+        "output_token_details": {
+          "text_tokens": 36,
+          "audio_tokens": 258
+        }
+      },
+      "server_send_ts": 1791778191.3144822,
+      "audio_bytes": 0,
+      "wall_seconds": 27.162
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-25",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2179,
+        "generate_ms": 708.4217071533203,
+        "cost_llm_ms": 183.75730514526367,
+        "cost_tts_prep_ms": 0.6268024444580078,
+        "cost_tts_ms": 408.39481353759766,
+        "cost_token2wav_ms": 116.10960960388184,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 263.2,
+        "wall_clock_ms": 972.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778191.3147016,
+      "audio_bytes": 96000,
+      "wall_seconds": 27.183
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-26",
+      "text": " start working with other",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2263,
+        "generate_ms": 717.519998550415,
+        "cost_llm_ms": 211.2443447113037,
+        "cost_tts_prep_ms": 0.4849433898925781,
+        "cost_tts_ms": 398.50449562072754,
+        "cost_token2wav_ms": 107.61451721191406,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 246.5,
+        "wall_clock_ms": 964.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 26,
+      "chunk_usage": {
+        "total_tokens": 106,
+        "input_tokens": 77,
+        "output_tokens": 29,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 4,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2482,
+        "input_tokens": 2159,
+        "output_tokens": 323,
+        "input_token_details": {
+          "text_tokens": 101,
+          "audio_tokens": 330,
+          "vision_tokens": 1728
+        },
+        "output_token_details": {
+          "text_tokens": 40,
+          "audio_tokens": 283
+        }
+      },
+      "server_send_ts": 1791778192.3247576,
+      "audio_bytes": 0,
+      "wall_seconds": 28.173
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-26",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2263,
+        "generate_ms": 717.519998550415,
+        "cost_llm_ms": 211.2443447113037,
+        "cost_tts_prep_ms": 0.4849433898925781,
+        "cost_tts_ms": 398.50449562072754,
+        "cost_token2wav_ms": 107.61451721191406,
+        "n_tokens": 4,
+        "n_tts_tokens": 25,
+        "prefill_ms": 246.5,
+        "wall_clock_ms": 964.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778192.3249385,
+      "audio_bytes": 96000,
+      "wall_seconds": 28.192
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-27",
+      "text": " artists or projects",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2346,
+        "generate_ms": 672.1246242523193,
+        "cost_llm_ms": 160.52579879760742,
+        "cost_tts_prep_ms": 0.4737377166748047,
+        "cost_tts_ms": 395.47276496887207,
+        "cost_token2wav_ms": 115.97037315368652,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 243.0,
+        "wall_clock_ms": 915.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 27,
+      "chunk_usage": {
+        "total_tokens": 105,
+        "input_tokens": 77,
+        "output_tokens": 28,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2587,
+        "input_tokens": 2236,
+        "output_tokens": 351,
+        "input_token_details": {
+          "text_tokens": 104,
+          "audio_tokens": 340,
+          "vision_tokens": 1792
+        },
+        "output_token_details": {
+          "text_tokens": 43,
+          "audio_tokens": 308
+        }
+      },
+      "server_send_ts": 1791778193.282777,
+      "audio_bytes": 0,
+      "wall_seconds": 29.131
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-27",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2346,
+        "generate_ms": 672.1246242523193,
+        "cost_llm_ms": 160.52579879760742,
+        "cost_tts_prep_ms": 0.4737377166748047,
+        "cost_tts_ms": 395.47276496887207,
+        "cost_token2wav_ms": 115.97037315368652,
+        "n_tokens": 3,
+        "n_tts_tokens": 25,
+        "prefill_ms": 243.0,
+        "wall_clock_ms": 915.6,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778193.2829986,
+      "audio_bytes": 96000,
+      "wall_seconds": 29.15
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-28",
+      "text": " that have",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2428,
+        "generate_ms": 647.442102432251,
+        "cost_llm_ms": 125.50902366638184,
+        "cost_tts_prep_ms": 0.4019737243652344,
+        "cost_tts_ms": 402.91619300842285,
+        "cost_token2wav_ms": 118.86119842529297,
+        "n_tokens": 2,
+        "n_tts_tokens": 25,
+        "prefill_ms": 268.1,
+        "wall_clock_ms": 916.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 28,
+      "chunk_usage": {
+        "total_tokens": 104,
+        "input_tokens": 77,
+        "output_tokens": 27,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 2,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2691,
+        "input_tokens": 2313,
+        "output_tokens": 378,
+        "input_token_details": {
+          "text_tokens": 107,
+          "audio_tokens": 350,
+          "vision_tokens": 1856
+        },
+        "output_token_details": {
+          "text_tokens": 45,
+          "audio_tokens": 333
+        }
+      },
+      "server_send_ts": 1791778194.2424011,
+      "audio_bytes": 0,
+      "wall_seconds": 30.09
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-28",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2428,
+        "generate_ms": 647.442102432251,
+        "cost_llm_ms": 125.50902366638184,
+        "cost_tts_prep_ms": 0.4019737243652344,
+        "cost_tts_ms": 402.91619300842285,
+        "cost_token2wav_ms": 118.86119842529297,
+        "n_tokens": 2,
+        "n_tts_tokens": 25,
+        "prefill_ms": 268.1,
+        "wall_clock_ms": 916.0,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778194.2426417,
+      "audio_bytes": 96000,
+      "wall_seconds": 30.111
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "text",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-29",
+      "text": " built-in audiences, it",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2513,
+        "generate_ms": 757.5042247772217,
+        "cost_llm_ms": 254.53805923461914,
+        "cost_tts_prep_ms": 0.5061626434326172,
+        "cost_tts_ms": 387.10713386535645,
+        "cost_token2wav_ms": 115.69333076477051,
+        "n_tokens": 5,
+        "n_tts_tokens": 25,
+        "prefill_ms": 248.2,
+        "wall_clock_ms": 1006.2,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "chunk_index": 29,
+      "chunk_usage": {
+        "total_tokens": 107,
+        "input_tokens": 77,
+        "output_tokens": 30,
+        "input_token_details": {
+          "text_tokens": 3,
+          "audio_tokens": 10,
+          "vision_tokens": 64
+        },
+        "output_token_details": {
+          "text_tokens": 5,
+          "audio_tokens": 25
+        }
+      },
+      "usage": {
+        "total_tokens": 2798,
+        "input_tokens": 2390,
+        "output_tokens": 408,
+        "input_token_details": {
+          "text_tokens": 110,
+          "audio_tokens": 360,
+          "vision_tokens": 1920
+        },
+        "output_token_details": {
+          "text_tokens": 50,
+          "audio_tokens": 358
+        }
+      },
+      "server_send_ts": 1791778195.2917328,
+      "audio_bytes": 0,
+      "wall_seconds": 31.14
+    },
+    {
+      "type": "response.output.delta",
+      "kind": "audio",
+      "session_id": "sess_8424349d4b01",
+      "response_id": "resp_6df7df60de2c",
+      "input_id": "chunk-29",
+      "metrics": {
+        "backend": "pytorch",
+        "kv_cache_length": 2513,
+        "generate_ms": 757.5042247772217,
+        "cost_llm_ms": 254.53805923461914,
+        "cost_tts_prep_ms": 0.5061626434326172,
+        "cost_tts_ms": 387.10713386535645,
+        "cost_token2wav_ms": 115.69333076477051,
+        "n_tokens": 5,
+        "n_tts_tokens": 25,
+        "prefill_ms": 248.2,
+        "wall_clock_ms": 1006.2,
+        "vision_slices": 1,
+        "vision_tokens": 64
+      },
+      "server_send_ts": 1791778195.2919312,
+      "audio_bytes": 96000,
+      "wall_seconds": 31.161
+    }
+  ],
+  "audio_output": true,
+  "inputs_after_output": 12,
+  "received_steps": 30,
+  "sent_steps": 30,
+  "p95_step_ms": 1029.7949999999998,
+  "model_smoke_passed": true,
+  "realtime_step_target_passed": false
+}

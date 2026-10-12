@@ -1,0 +1,14 @@
+{
+  "minicpm-demo": {
+    "url": "https://github.com/OpenBMB/MiniCPM-o-Demo.git",
+    "revision": "47709a9210dfd71afa76c058e017fc8c4db5c8d2"
+  },
+  "qwen-asr": {
+    "url": "https://github.com/QwenLM/Qwen3-ASR.git",
+    "revision": "7c6daf77a2421100f5fb066495372c00129d39ff"
+  },
+  "qwen-tts": {
+    "url": "https://github.com/QwenLM/Qwen3-TTS.git",
+    "revision": "022e286b98fbec7e1e916cb940cdf532cd9f488e"
+  }
+}

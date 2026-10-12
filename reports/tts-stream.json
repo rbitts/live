@@ -1,0 +1,34 @@
+{
+  "kind": "streamed-tts-roundtrip",
+  "text": "빨간 컵은 왼쪽에 있어요.",
+  "recognized": "빨간 컵은 왼쪽에 있어요.",
+  "passed": true,
+  "chunks": [
+    {
+      "arrival_ms": 1753.1,
+      "audio_ms": 640.0
+    },
+    {
+      "arrival_ms": 2512.8,
+      "audio_ms": 640.0
+    },
+    {
+      "arrival_ms": 3397.9,
+      "audio_ms": 640.0
+    },
+    {
+      "arrival_ms": 4327.7,
+      "audio_ms": 640.0
+    },
+    {
+      "arrival_ms": 5272.2,
+      "audio_ms": 640.0
+    },
+    {
+      "arrival_ms": 6019.7,
+      "audio_ms": 480.0
+    }
+  ],
+  "total_audio_seconds": 3.68,
+  "first_audio_ms": 1753.1
+}

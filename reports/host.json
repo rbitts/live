@@ -1,0 +1,15 @@
+{
+  "profile": "external-dev",
+  "python": "3.11.16",
+  "free_disk_gb": 1250.1,
+  "gpu": {
+    "returncode": 0,
+    "output": "0, NVIDIA GeForce RTX 3090, 24576 MiB, 20771 MiB, 595.91.07\n1, NVIDIA GeForce RTX 3090, 24576 MiB, 2548 MiB, 595.91.07"
+  },
+  "models": {
+    "minicpm": true,
+    "asr": true,
+    "vlm": true,
+    "tts": true
+  }
+}

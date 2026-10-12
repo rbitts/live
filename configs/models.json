@@ -1,0 +1,6 @@
+{
+  "minicpm": {"repo": "openbmb/MiniCPM-o-4_5", "revision": "503e754207c94da6bb26850b4469f367c9ea3582"},
+  "asr": {"repo": "Qwen/Qwen3-ASR-0.6B", "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0"},
+  "vlm": {"repo": "Qwen/Qwen3.5-4B", "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"},
+  "tts": {"repo": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice", "revision": "85e237c12c027371202489a0ec509ded67b5e4b5"}
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open-weight Live</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#e9eef6;background:#101722}body{max-width:1020px;margin:40px auto;padding:0 22px}h1{font-size:32px;margin-bottom:6px}.sub{color:#a9bbd0;line-height:1.6}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}section{background:#192333;padding:22px;border-radius:18px}button,input,textarea{font:inherit;border-radius:9px;border:1px solid #465870;padding:11px}button{background:#c6f2dd;color:#14392b;cursor:pointer;margin:4px}button:disabled{opacity:.45;cursor:default}textarea,input{box-sizing:border-box;width:100%;background:#101722;color:white;margin:8px 0}video{background:#0b111b;width:100%;aspect-ratio:4/3;border-radius:12px}#log{height:300px;overflow:auto;white-space:pre-wrap;line-height:1.7}label{display:block;margin-top:12px}.tag{display:inline-block;padding:5px 10px;border:1px solid #465870;border-radius:20px;font-size:13px}a{color:#c6f2dd}#state{color:#c6f2dd}@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+<h1>보고, 듣고, 대화하기</h1><div class="sub">오픈웨이트 Live 비교 실험 · 한국어 개인화 경로</div>
+<p><span class="tag">Qwen · 시스템 full-duplex</span> <a href="http://localhost:8006" target="_blank" rel="noopener">MiniCPM 네이티브 데모 열기 ↗</a></p>
+<p class="sub">마이크는 답변 재생 중에도 켜져 있습니다. 끼어들면 재생을 멈춥니다. 프로필과 장면 기억은 이 연결 안에서만 유지됩니다. 이어폰 사용을 권장합니다.</p>
+<div class="grid"><section><video id="video" autoplay muted playsinline></video>
+<div><button id="start">대화 시작</button><button id="stop" disabled>종료</button><button id="interrupt" disabled>말 멈추기</button></div>
+<p id="state">연결 전</p><label><input id="camera" type="checkbox" checked style="width:auto"> 카메라 사용</label>
+<label for="profile">답변 선호</label><textarea id="profile" maxlength="500" rows="2" placeholder="예: 한국어로 핵심만 짧게 말해 주세요."></textarea><button id="reset">세션 기억 지우기</button></section>
+<section><div id="log" aria-live="polite"></div><form id="form"><input id="text" placeholder="텍스트로도 질문할 수 있습니다" maxlength="2000"><button>질문 보내기</button></form><p class="sub" id="metrics">실제 지연 시간은 대화가 끝나면 표시됩니다.</p></section></div>
+<script>
+const $ = id => document.getElementById(id);
+let ws, ctx, media, capture, source, mute, frameTimer, queueAt=0, playing=new Set(), epoch=-1, localBlocked=false, blockUntilEpoch=0, voiced=0, closing=false;
+function log(text){const p=document.createElement('div');p.textContent=text;$('log').append(p);while($('log').children.length>100)$('log').firstChild.remove();$('log').scrollTop=$('log').scrollHeight;}
+function send(message){if(ws?.readyState===1)ws.send(JSON.stringify(message));}
+function b64(buffer){let s='';for(const b of new Uint8Array(buffer))s+=String.fromCharCode(b);return btoa(s);}
+function clearAudio(){for(const node of playing){try{node.stop();}catch{}}playing.clear();queueAt=ctx?.currentTime||0;}
+function interrupt(){blockUntilEpoch=epoch+1;localBlocked=true;clearAudio();send({type:'interrupt'});}
+function play(msg){
+ if(localBlocked||msg.epoch!==epoch)return;
+ const binary=atob(msg.pcm),bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));
+ const pcm=new Float32Array(bytes.buffer), buffer=ctx.createBuffer(1,pcm.length,msg.sample_rate);buffer.copyToChannel(pcm,0);
+ if(queueAt-ctx.currentTime>8){interrupt();log('재생 지연이 누적되어 답변을 중단했습니다.');return;}
+ const node=ctx.createBufferSource();node.buffer=buffer;node.connect(ctx.destination);playing.add(node);node.onended=()=>playing.delete(node);
+ queueAt=Math.max(queueAt,ctx.currentTime+.025);node.start(queueAt);queueAt+=buffer.duration;
+}
+async function stop(){if(closing)return;closing=true;clearInterval(frameTimer);clearAudio();media?.getTracks().forEach(t=>t.stop());capture?.disconnect();source?.disconnect();mute?.disconnect();ws?.close();if(ctx&&ctx.state!=='closed')await ctx.close();$('video').srcObject=null;$('start').disabled=false;$('stop').disabled=$('interrupt').disabled=true;$('state').textContent='종료 · 세션 기억 삭제됨';closing=false;}
+$('start').onclick=async()=>{
+ try{
+ $('start').disabled=true;epoch=-1;localBlocked=false;blockUntilEpoch=0;voiced=0;
+ ctx=new AudioContext();await ctx.resume();await ctx.audioWorklet.addModule('/worklet.js');
+ media=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:$('camera').checked?{width:640,height:480}:false});$('video').srcObject=media;
+ ws=new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}/ws`);
+ ws.onopen=()=>{send({type:'profile',text:$('profile').value});$('state').textContent='듣는 중';$('stop').disabled=$('interrupt').disabled=false;
+ source=ctx.createMediaStreamSource(media);capture=new AudioWorkletNode(ctx,'capture');mute=ctx.createGain();mute.gain.value=0;source.connect(capture).connect(mute).connect(ctx.destination);
+ capture.port.onmessage=({data})=>{let sum=0;for(const s of data)sum+=s*s;voiced=Math.sqrt(sum/data.length)>=.018?voiced+1:0;if(voiced===3){blockUntilEpoch=epoch+1;localBlocked=true;clearAudio();}if(ws.bufferedAmount>64000){log('입력 전송 지연으로 연결을 종료합니다.');stop();return;}send({type:'audio',pcm:b64(data.buffer)});};
+ const canvas=document.createElement('canvas');canvas.width=640;canvas.height=480;const draw=canvas.getContext('2d');
+ frameTimer=setInterval(()=>{if(!$('camera').checked||!$('video').videoWidth)return;draw.drawImage($('video'),0,0,640,480);send({type:'frame',jpeg:canvas.toDataURL('image/jpeg',.65).split(',')[1]});},1000);
+ };
+ ws.onmessage=({data})=>{const msg=JSON.parse(data);
+ if(msg.type==='playback_stop'){epoch=msg.epoch;clearAudio();}
+ if(msg.type==='speech_started'){$('state').textContent='듣는 중';}
+ if(msg.type==='response_start'&&msg.epoch===epoch&&msg.epoch>=blockUntilEpoch){localBlocked=false;$('state').textContent='답변 준비 중';}
+ if(msg.type==='transcript')log('나: '+msg.text);
+ if(msg.type==='text'&&msg.epoch===epoch)log('AI: '+msg.text);
+ if(msg.type==='audio'){if(msg.first_audio_ms!=null)$('metrics').textContent=`발화 종료 판정 후 첫 음성: ${(msg.first_audio_ms/1000).toFixed(2)}초`;$('state').textContent='말하는 중 · 끼어들 수 있음';play(msg);}
+ if(msg.type==='response_done'){$('metrics').textContent=`이번 응답 완료: ${(msg.elapsed_ms/1000).toFixed(2)}초`;$('state').textContent='듣는 중';}
+ if(msg.type==='error'){log('오류: '+msg.message);$('state').textContent='오류';}
+ if(msg.type==='reset_done'){log('프로필과 장면 기억을 지웠습니다.');$('profile').value='';}
+ };
+ ws.onclose=()=>{if(!closing)stop();};ws.onerror=()=>log('연결 오류: 서버 상태를 확인해 주세요.');
+ }catch(error){log(error.message);await stop();}
+};
+$('stop').onclick=stop;$('interrupt').onclick=interrupt;$('reset').onclick=()=>{interrupt();send({type:'reset'});};
+$('camera').onchange=()=>{for(const track of media?.getVideoTracks()||[])track.enabled=$('camera').checked;if(!$('camera').checked)send({type:'camera_off'});else if(media&&!media.getVideoTracks().length)log('카메라를 켜려면 종료 후 대화를 다시 시작해 주세요.');};
+$('profile').onchange=()=>send({type:'profile',text:$('profile').value});
+$('form').onsubmit=e=>{e.preventDefault();if(ws?.readyState!==1){log('먼저 대화를 시작해 주세요.');return;}interrupt();send({type:'text',text:$('text').value});$('text').value='';};
+window.addEventListener('pagehide',()=>{media?.getTracks().forEach(t=>t.stop());ws?.close();});
+</script></html>
