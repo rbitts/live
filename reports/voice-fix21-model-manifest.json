@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "model_acceptance": false,
+  "purpose": "noncommercial OJT pilot; device acceptance pending",
+  "models": {
+    "minicpm": {
+      "repo": "openbmb/MiniCPM-o-4_5",
+      "revision": "503e754207c94da6bb26850b4469f367c9ea3582"
+    },
+    "asr": {
+      "repo": "Qwen/Qwen3-ASR-0.6B",
+      "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0"
+    },
+    "vlm": {
+      "repo": "Qwen/Qwen3.5-4B",
+      "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+    },
+    "tts": {
+      "repo": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+      "revision": "85e237c12c027371202489a0ec509ded67b5e4b5"
+    }
+  },
+  "mnn_revision": "9f097c5fdd48e0cac4468d4cc53a828794d96888",
+  "runtime_patch_sha256": "58142f499dad20791d9df221b776145fc898d58fa97d91d1aa729dc4fe4272c2",
+  "files": [
+    {
+      "path": "asr/audio.mnn",
+      "bytes": 2988144,
+      "sha256": "7b6d6e6917737bdc0e12008efe0c7decf19b88f65f990c9a9b3a53790946f18d"
+    },
+    {
+      "path": "asr/audio.mnn.weight",
+      "bytes": 373185600,
+      "sha256": "1456a76d7039681fbfdd94ffdac486545da62859f80a58b43a6f527f42a72382"
+    },
+    {
+      "path": "asr/config.json",
+      "bytes": 644,
+      "sha256": "d7cf1ba4733e9b4ae5a291ade86c7513114bf7717e2832140ab1cb0b9e45848e"
+    },
+    {
+      "path": "asr/llm.mnn",
+      "bytes": 1314472,
+      "sha256": "8296e3a80cd1931222992dec8520cf00be8253dcfcc8039568463ce1faf18d95"
+    },
+    {
+      "path": "asr/llm.mnn.weight",
+      "bytes": 633751970,
+      "sha256": "8b71f5c03dd45c1c1d05588d89dba2ecce5605171ea63b1c575444b3898bb768"
+    },
+    {
+      "path": "asr/llm_config.json",
+      "bytes": 918,
+      "sha256": "5ef2141a7b781336aff093f1487077ace67ce98894fd3aebc8f56d018b64b253"
+    },
+    {
+      "path": "asr/tokenizer.txt",
+      "bytes": 3194212,
+      "sha256": "70e5e435679b6520af2b8f5fd400e30023600321b09ab6153f7215b659b68c07"
+    },
+    {
+      "path": "vlm/config.json",
+      "bytes": 621,
+      "sha256": "dc4b4e490a7e393c7098c0d2deb76480eb32cb33f74b468f08d301d50b53ca80"
+    },
+    {
+      "path": "vlm/llm.mnn",
+      "bytes": 4043656,
+      "sha256": "c2b726a5fe929a9fc51403d23e2f7ddcc1a65b15c889d2b8b25ad257d8b39267"
+    },
+    {
+      "path": "vlm/llm.mnn.weight",
+      "bytes": 2366555674,
+      "sha256": "845153f3e0b13fe0c7cf0a6753314dd8b4616c4ba761de03ee99aa09502d2ee3"
+    },
+    {
+      "path": "vlm/llm_config.json",
+      "bytes": 9053,
+      "sha256": "1b8dcccc92046a1c5274b42b910ff802efd08ae1733cfa6fe416fec7d8fabec8"
+    },
+    {
+      "path": "vlm/tokenizer.mtok",
+      "bytes": 7342049,
+      "sha256": "c9944fef1beced85b9ffc4435adba5da71167169854d7cd5e69d39894be3a6e1"
+    },
+    {
+      "path": "vlm/visual.mnn",
+      "bytes": 5205624,
+      "sha256": "da46e2196a189cf4d0ba0e38d09a3578ea5390ed7081de1b76a43ccb631415eb"
+    },
+    {
+      "path": "vlm/visual.mnn.weight",
+      "bytes": 662968320,
+      "sha256": "16058d2191d7a85f4d84093d8a7615a9345a63a0edc770a5d124e816c1ef7a02"
+    },
+    {
+      "path": "tts/code_predictor.mnn",
+      "bytes": 1231920,
+      "sha256": "217a7648a88f47b1f795abd83aa5e01d8a53ca9881d4b8f29df3c9b85fccebc8"
+    },
+    {
+      "path": "tts/code_predictor.mnn.weight",
+      "bytes": 117084972,
+      "sha256": "6f723d919769ed026eb7595b9102f898d5050266f288a6d278aa99e8a53a8c7a"
+    },
+    {
+      "path": "tts/code_predictor_embeddings_bf16.bin",
+      "bytes": 62914560,
+      "sha256": "0c961d439f1a78f754c1f0ef64198091077d4f25fc7e94b93122b3d11e725c3b"
+    },
+    {
+      "path": "tts/codec_embedder.mnn",
+      "bytes": 960,
+      "sha256": "bb9df6c39d029819ee3fdc09707a3539bef03c2fff4fa5bcac3a271c8aab2eec"
+    },
+    {
+      "path": "tts/codec_embedder.mnn.weight",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tts/config.json",
+      "bytes": 937,
+      "sha256": "20fd4f45e746dfdb1434dccd16bcd11e8cc516ea29e4d9cfc6d4b6ab577b230b"
+    },
+    {
+      "path": "tts/llm_config.json",
+      "bytes": 2443,
+      "sha256": "ad9a87fb51a8d68503409d0a9c60e2bdde707424d241e93314962ef76504d3e3"
+    },
+    {
+      "path": "tts/speech_decoder.mnn",
+      "bytes": 607112,
+      "sha256": "8efb72913201a2cf7932af67a0eafd682e884461d8d099ace2e728e6e2e4a1e0"
+    },
+    {
+      "path": "tts/speech_decoder.mnn.weight",
+      "bytes": 143184650,
+      "sha256": "3b1b77352d76d8c3bb0d10eb091b60872997880c3e05ed5ef318df265fb65af9"
+    },
+    {
+      "path": "tts/talker.mnn",
+      "bytes": 1378128,
+      "sha256": "4970437f8f1a86e38776515012e001eed5dceb2c65de6ca753ae83629a4d99ac"
+    },
+    {
+      "path": "tts/talker.mnn.weight",
+      "bytes": 478485418,
+      "sha256": "791ec6546c43fbad60c3c0012f6d65bc054aad44863dd5588d88c3dd43952191"
+    },
+    {
+      "path": "tts/talker_embeddings_bf16.bin",
+      "bytes": 6291456,
+      "sha256": "9897e34e43095ad8244f43523a60fd8f952f869a08c1126f56b6de5e915e8f92"
+    },
+    {
+      "path": "tts/talker_text_embeddings_bf16.bin",
+      "bytes": 622329856,
+      "sha256": "073ee473856318b4e69736dac8965acbf8f0b2d2ae7bcb55a4e27e6e66da3223"
+    },
+    {
+      "path": "tts/tokenizer.txt",
+      "bytes": 3193703,
+      "sha256": "837c69c8566f5ed0892e0ce089e3292f5826c9256433324cb65b7ec833fbbc39"
+    },
+    {
+      "path": "observer/config.json",
+      "bytes": 634,
+      "sha256": "b81ac7008ba5f894301b7b9265bba882889df52c6e25c86390514c1bd4afe0c4"
+    },
+    {
+      "path": "observer/llm.mnn",
+      "bytes": 822584,
+      "sha256": "4153ab147134ef8a10f2719381ad6d02575cdb8383d9b41d78eb472f8bd75b90"
+    },
+    {
+      "path": "observer/llm.mnn.weight",
+      "bytes": 199632898,
+      "sha256": "7748eb92140186b7e7a8c76a2600cf9185ab7488e1b647aeaf2cbcc577f504f7"
+    },
+    {
+      "path": "observer/llm_config.json",
+      "bytes": 4924,
+      "sha256": "8472bb1ee0ebfb8ebd28db6dbcf2288e8f081de2165b21e26ac5229103d7c395"
+    },
+    {
+      "path": "observer/tokenizer.mtok",
+      "bytes": 1670761,
+      "sha256": "15db3723736bf7b401abc0cb6a7e9a7bdd11516ff06068588859afb69f08c65b"
+    },
+    {
+      "path": "observer/visual.mnn",
+      "bytes": 246592,
+      "sha256": "075167c58a5963ee9e4bb65fa84b6329249cc3651bb9ffa205111291e9e8dac8"
+    },
+    {
+      "path": "observer/visual.mnn.weight",
+      "bytes": 101089474,
+      "sha256": "eb1e9388f81efbcad5ee9e9a673f327f52907f2ad4beb3da959b5eb14009438b"
+    }
+  ],
+  "observer": {
+    "repo": "LiquidAI/LFM2.5-VL-450M",
+    "revision": "fc6221ca597f3315e4f82fc2df606783267b34ba",
+    "role": "optional observer: explicit object presence only; no recipe generation",
+    "runtime": "MNN OpenCL on validated MT6989; CPU fallback unmeasured",
+    "export": {
+      "text_bits": 4,
+      "block": 64,
+      "vision_bits": 8,
+      "tile_size": 512
+    },
+    "acceptance": "limited fixture smoke; FT and human kitchen acceptance pending"
+  },
+  "total_bytes": 5800734939,
+  "archive": "/home/bongh.park/workspace/live/.runtime/ojt/artifacts/live-base-general-models.zip",
+  "archive_sha256": "02a5ef0c82031dfb4509f2c364b5b230e0ba27f4420a44b3312c9aa75b7fcc3a"
+}

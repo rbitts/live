@@ -1,0 +1,10 @@
+{
+  "source": "video-scenario-natural-semantic-failure.json",
+  "source_sha256": "602a385dbe060453d11429ee5827162bcde787f8af9c1ad9071c762b60b4f446",
+  "round": 2,
+  "key": "visual_recall_off",
+  "response_sha256": "e3e119fdb9da556cbae9c687ad9c268b029b01a66cf4c43c3266e702d6c18b39",
+  "pass": false,
+  "reason": "No current image. The answer first denies current verification, then promises to remember that the animal is still there. This invents current state from past evidence. Stopped the run after this semantic failure; raw status remains the last running snapshot.",
+  "fix": "0.24 retrieves explicitly saved visual descriptions verbatim and separately states current unavailability. Image-present comparison remains model inference; no answer labels injected."
+}

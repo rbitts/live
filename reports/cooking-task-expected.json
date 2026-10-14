@@ -1,0 +1,47 @@
+{
+  "case_sha256": "0cbc629d5c97303be88c16ac39d3eebdf7e1e198708bf691255f89d9d69e39cc",
+  "frozen_before_inference": true,
+  "source_video": "P18_03",
+  "reviewer": "Codex frame/official-annotation comparison, 2026-10-14; human review pending",
+  "groups": [
+    {
+      "initial_step": 0,
+      "working_or_unknown_without_complete_s": [
+        95,
+        100,
+        103
+      ],
+      "visible_complete_s": [
+        108,
+        137,
+        144
+      ],
+      "current_workspace_unavailable_s": [
+        119,
+        126,
+        150
+      ],
+      "earliest_completion_source_s": 103.59
+    },
+    {
+      "initial_step": 3,
+      "working_or_unknown_without_complete_s": [
+        288,
+        299,
+        303,
+        310
+      ],
+      "completion_eligible_s": [
+        315,
+        318,
+        321,
+        333
+      ],
+      "workspace_unavailable_s": [
+        325
+      ],
+      "earliest_completion_source_s": 314.92
+    }
+  ],
+  "rule": "Repeated complete claims while cutting is continuing are a critical false intervention. Completion recall must be based on model observations, not annotations. Fixture initial prior steps are user-confirmed setup only."
+}

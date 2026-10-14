@@ -1,0 +1,65 @@
+{
+  "selected": "EPIC-KITCHENS P18_03",
+  "source_url": "https://data.bris.ac.uk/datasets/3h91syskeag572hl6tvuovwv4d/videos/test/P18/P18_03.MP4",
+  "video_readme_url": "https://data.bris.ac.uk/datasets/3h91syskeag572hl6tvuovwv4d/readme.txt",
+  "annotation_url": "https://raw.githubusercontent.com/epic-kitchens/epic-kitchens-100-annotations/master/EPIC_100_validation.csv",
+  "annotation_license_url": "https://raw.githubusercontent.com/epic-kitchens/epic-kitchens-100-annotations/master/license.txt",
+  "retrieved_date": "2026-10-14",
+  "splits": {
+    "EPIC_55": "test",
+    "EPIC_100_action_recognition": "validation"
+  },
+  "role": "development scenario / diagnostic evaluation; not a fresh held-out benchmark or training/calibration data",
+  "prior_local_ojt_participants": [
+    "P01",
+    "P06",
+    "P32"
+  ],
+  "P18_overlap_with_local_ojt": false,
+  "video_license": "CC-BY-NC-4.0 per raw video README; portal generic license field differs",
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "modified": "Resized 1080p to640x360; video subsampled ~15fps; source audio omitted for replay; original retained; entire chronology and duration retained",
+  "manifest": {
+    "video_id": "P18_03",
+    "source_file": "/home/bongh.park/workspace/live/.runtime/task-video/P18_03.MP4",
+    "source_sha256": "46485f3de703d921284e84aea05b52a1a6b8e1655811ebe0a1d78713506132eb",
+    "source_metadata": {
+      "width": 1920,
+      "height": 1080,
+      "duration_s": 427.434667,
+      "average_rate": "60000/1001",
+      "has_audio": true
+    },
+    "annotation_source_sha256": "35f7932ba0a1127a96cac215a98d35398946f343e3cea9ad6688ed17eee9d75d",
+    "annotation_count": 113,
+    "annotations_role": "evaluator only; never supplied to runtime inference",
+    "output_file": "/home/bongh.park/workspace/live/.runtime/task-video/salad/P18_03-continuous.mp4",
+    "output_sha256": "d34a8e194e82c5d2cbc3160cb01bb970bdc7f55106267f352c5e3c96760a69a4",
+    "output_bytes": 41192324,
+    "output_duration_s": 427.466667,
+    "decoded_frames": 6412,
+    "output_size": [
+      640,
+      360
+    ],
+    "audio": false,
+    "source_start_pts_s": 0.0,
+    "source_last_selected_pts_s": 427.4103166666667,
+    "editing": "Entire original chronological video; spatial resize and ~15fps temporal subsampling; audio omitted; no cuts, loops or time acceleration.",
+    "timestamp_tolerance_s": 0.06666666666666667,
+    "attribution": "Dima Damen et al., Scaling Egocentric Vision: The EPIC-KITCHENS Dataset (2018); EPIC-KITCHENS-100 action annotations.",
+    "license": "CC-BY-NC-4.0 (dataset-specific video README and annotation license)",
+    "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "model_acceptance": false
+  },
+  "sources": {
+    "val.csv": "35f7932ba0a1127a96cac215a98d35398946f343e3cea9ad6688ed17eee9d75d",
+    "epic_100_splits.csv": "7f03f09311ebe28d9a4b4b825041dd476fdee8b828d725de2e0bd89d253593f8",
+    "epic_downloader.py": "3e23b4989a375ae8555f4db9f3c40d6a7ab1e011d377cb77fdfbe3f7d78d21f5",
+    "train.csv": "a3a7ef2e397bd8af12bd0496b09d61b1f2c1f3f6e1726fa86af50a27f4855e87",
+    "epic-video-readme.txt": "d20856a95913ee3dd22d9ef2953bc59b309350e276edaa3a79540c7bbacb8347",
+    "epic_55_splits.csv": "5acf8b924a51819b7dda91cb56b867f6fc08d367dd0e3f6c99ecdb0f8a9c45e4",
+    "epic-annotation-license.txt": "acb7384c3f73cc96367ac132bc0bd57efa38c4495c17781032a2cf1444b65ebe"
+  },
+  "dataset_selection_human_live_acceptance": false
+}

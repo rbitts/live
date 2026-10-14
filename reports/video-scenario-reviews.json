@@ -1,0 +1,235 @@
+{
+  "review": "Codex full-response and selected-frame review, not a human acoustic evaluation",
+  "results_sha256": "7b96bd41ca4b195ca6fc8d578d5435969e058d869a4c04deba2d22dcc25495ed",
+  "critical_memory_pass": 15,
+  "critical_memory_total": 15,
+  "additional_scene_description_pass": 0,
+  "additional_scene_description_total": 3,
+  "interrupted_answers_ungraded": 3,
+  "general_visual_accuracy_acceptance": false,
+  "notes": "Frozen pre-run memory rubric retained. Tool/control success is separate from visual quality; no post-hoc relabeling of the failed scene descriptions. No-image memory-policy answers are not new VLM inference.",
+  "rows": [
+    {
+      "round": 1,
+      "key": "visual_first",
+      "response_sha256": "42929d350cd124935c40077a2f5c3b3f2b44409a5f08ece03ea7c91c8de1e10c",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Actual attached image shows a light rabbit standing on grass; answer names both and records them.",
+      "evidence_sha256": "9f601a2e9ea074d56c596c46b97e4478a41af420bc2ffb8cf9f31d7b07dfb17f"
+    },
+    {
+      "round": 1,
+      "key": "visual_detail",
+      "response_sha256": "a2e9e195134c50ebb9dcf130d10ba3fcb4a7d2d5ff3d82060b0785321190768c",
+      "response_field": "response",
+      "response_path": "model",
+      "critical_memory_case": false,
+      "pass": null,
+      "reason": "Intentionally interrupted. Available partial answer describes the attached rabbit/grass; not graded as a completed answer.",
+      "evidence_sha256": "64fd3197d4231a591b013d6f6fadd1c3955ab71da6e7f09307cbd19394faef7f"
+    },
+    {
+      "round": 1,
+      "key": "visual_due",
+      "response_sha256": "3133c860c73229587e1c9e0fd1555be2bf47f5a74427245b8ff47772b13854a6",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": false,
+      "pass": false,
+      "reason": "Current scene contains three different small cartoon animals. Species/positions are not described reliably; says all mice or (round 2) a red bird, and infers coming down from roots from a single selected frame. This is not counted as visual-answer correctness.",
+      "evidence_sha256": "6fec01741fd3f8f6b027698ad56321650a62ce7138ffd759c704c289fb9328b5"
+    },
+    {
+      "round": 1,
+      "key": "visual_compare",
+      "response_sha256": "47fb52327d2d641465c561de19311994433c43c4ee727a03fa5078e3be976e3b",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Recalls rabbit on grass, distinguishes current tree/grass/hole view without that rabbit. Round 2 repeats its two-part paragraph; content criterion passes but repetition is a quality defect.",
+      "evidence_sha256": "5cf53cac861300a5e44fa5d7ca4651af522c1b7d9ed9bae2c3f74ad5b73c57bd"
+    },
+    {
+      "round": 1,
+      "key": "visual_recall_off",
+      "response_sha256": "426ec7ee08379b362621355681b1fbc9e303353ae5c9a808616b36eb127efda2",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "No current image. Explicit readback quotes the saved model description as past and separately states current location is unknown; AudioTrack drains fully."
+    },
+    {
+      "round": 1,
+      "key": "visual_off",
+      "response_sha256": "af5775858631668c2c4894bf6ffad1af21ea31a13e5a4fcf2ee3dc516e3bb8de",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "No current image; current location is explicitly unavailable, without asserting continued presence."
+    },
+    {
+      "round": 1,
+      "key": "visual_reset",
+      "response_sha256": "365b67cc5af966392d9729fa7efe6e8706f5e08c2f77288942d7da823781fc73",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Identical recall input after reset reports no saved observation; no rabbit/location is fabricated."
+    },
+    {
+      "round": 2,
+      "key": "visual_first",
+      "response_sha256": "4ab19a779503fddb28000070bd31bdca029f5b137f1bb7a4839a769910f8e0fd",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Actual attached image shows a light rabbit standing on grass; answer names both and records them.",
+      "evidence_sha256": "2a446e36cc2fe9e7689f87185066448876aec886baa2b0a1ae5fab1503e8690f"
+    },
+    {
+      "round": 2,
+      "key": "visual_detail",
+      "response_sha256": "b088746b05675b82d8208117800991bb2f2b22a2f0eb1891e858460774dffcfa",
+      "response_field": "response",
+      "response_path": "model",
+      "critical_memory_case": false,
+      "pass": null,
+      "reason": "Intentionally interrupted. Available partial answer describes the attached rabbit/grass; not graded as a completed answer.",
+      "evidence_sha256": "2689667356203101febd51b4838a1548d13cb878233831dca7e3fedc9e80d897"
+    },
+    {
+      "round": 2,
+      "key": "visual_due",
+      "response_sha256": "1660954d28e89d9965f6003c3f543a0c8e408c9f2b9db9c3c0b8a3f26f6d51b9",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": false,
+      "pass": false,
+      "reason": "Current scene contains three different small cartoon animals. Species/positions are not described reliably; says all mice or (round 2) a red bird, and infers coming down from roots from a single selected frame. This is not counted as visual-answer correctness.",
+      "evidence_sha256": "6f60fef65fad09a6a4bff3b10a2c7747f01e0ba3015f7a2e1c21156ab19c305b"
+    },
+    {
+      "round": 2,
+      "key": "visual_compare",
+      "response_sha256": "2eda170a5b8420c0265f078cf51f3a58c50390af7e46bece7828150b8e55384a",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Recalls rabbit on grass, distinguishes current tree/grass/hole view without that rabbit. Round 2 repeats its two-part paragraph; content criterion passes but repetition is a quality defect.",
+      "evidence_sha256": "bb67c101baf73f9cb6236ca3594f7ec9af782995edf7b19ede0f1e305c0ef5c1"
+    },
+    {
+      "round": 2,
+      "key": "visual_recall_off",
+      "response_sha256": "e3bbe43fd8dda792da1dc0e4ddedf73711fb235c03282d9bff51a03accbbe6eb",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "No current image. Explicit readback quotes the saved model description as past and separately states current location is unknown; AudioTrack drains fully."
+    },
+    {
+      "round": 2,
+      "key": "visual_off",
+      "response_sha256": "af5775858631668c2c4894bf6ffad1af21ea31a13e5a4fcf2ee3dc516e3bb8de",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "No current image; current location is explicitly unavailable, without asserting continued presence."
+    },
+    {
+      "round": 2,
+      "key": "visual_reset",
+      "response_sha256": "365b67cc5af966392d9729fa7efe6e8706f5e08c2f77288942d7da823781fc73",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Identical recall input after reset reports no saved observation; no rabbit/location is fabricated."
+    },
+    {
+      "round": 3,
+      "key": "visual_first",
+      "response_sha256": "aedfa8331cdb11c1cac3fefcb0d788c2dd8d4baac80d3bf05ec6e8b7b91f643f",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Actual attached image shows a light rabbit standing on grass; answer names both and records them.",
+      "evidence_sha256": "2a446e36cc2fe9e7689f87185066448876aec886baa2b0a1ae5fab1503e8690f"
+    },
+    {
+      "round": 3,
+      "key": "visual_detail",
+      "response_sha256": "6b37efdf0dda649cebbc0053f8e439c2d34c4c4b33c6841b0ce3a46d001d730c",
+      "response_field": "response",
+      "response_path": "model",
+      "critical_memory_case": false,
+      "pass": null,
+      "reason": "Intentionally interrupted. Available partial answer describes the attached rabbit/grass; not graded as a completed answer.",
+      "evidence_sha256": "a2ba7565cc68dd1a030275fe5fb0eea6b8bfa886434a8165d937908e77f29754"
+    },
+    {
+      "round": 3,
+      "key": "visual_due",
+      "response_sha256": "ae163aeba826b9619459573b42190a4f159fa277058ede6fd5d4ac93fa3f9565",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": false,
+      "pass": false,
+      "reason": "Current scene contains three different small cartoon animals. Species/positions are not described reliably; says all mice or (round 2) a red bird, and infers coming down from roots from a single selected frame. This is not counted as visual-answer correctness.",
+      "evidence_sha256": "d6dc62e03dbb8468dfdbc6359538868454c2720cd6fcfb48410edc4a63cc7388"
+    },
+    {
+      "round": 3,
+      "key": "visual_compare",
+      "response_sha256": "7a6c40151a67df019318852d4b2f46e606351b54ef4985ab8927a9a4ba5c2322",
+      "response_field": "completed_response",
+      "response_path": "model",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Recalls rabbit on grass, distinguishes current tree/grass/hole view without that rabbit. Round 2 repeats its two-part paragraph; content criterion passes but repetition is a quality defect.",
+      "evidence_sha256": "5a6dd8407698594cb97e1ba2039d527b518783418b0446be6675cb0b137a1cc0"
+    },
+    {
+      "round": 3,
+      "key": "visual_recall_off",
+      "response_sha256": "a0ba879ff38642c5d048a6ab48080da486682790a5ac4326598bdd24e3a4903d",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "No current image. Explicit readback quotes the saved model description as past and separately states current location is unknown; AudioTrack drains fully."
+    },
+    {
+      "round": 3,
+      "key": "visual_off",
+      "response_sha256": "af5775858631668c2c4894bf6ffad1af21ea31a13e5a4fcf2ee3dc516e3bb8de",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "No current image; current location is explicitly unavailable, without asserting continued presence."
+    },
+    {
+      "round": 3,
+      "key": "visual_reset",
+      "response_sha256": "365b67cc5af966392d9729fa7efe6e8706f5e08c2f77288942d7da823781fc73",
+      "response_field": "completed_response",
+      "response_path": "visual-memory-policy",
+      "critical_memory_case": true,
+      "pass": true,
+      "reason": "Identical recall input after reset reports no saved observation; no rabbit/location is fabricated."
+    }
+  ]
+}

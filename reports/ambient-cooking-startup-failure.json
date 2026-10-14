@@ -1,0 +1,8 @@
+{
+  "observations": [],
+  "turns": [],
+  "scope": "original full-duration silent cooking video + paced synthetic PCM through production VAD\/ASR\/TTS; uncorrected model observations; human acceptance pending",
+  "gpu_active": true,
+  "sample_sha256": "d34a8e194e82c5d2cbc3160cb01bb970bdc7f55106267f352c5e3c96760a69a4",
+  "stage": "replay_start"
+}

@@ -1,0 +1,205 @@
+{
+  "status": "completed",
+  "planned_rounds": 5,
+  "completed_rounds": 5,
+  "observed_turns": 30,
+  "final_asr": {
+    "passed": 30,
+    "total": 30,
+    "percent": 100.0
+  },
+  "asr_exact": {
+    "passed": 30,
+    "total": 30,
+    "percent": 100.0
+  },
+  "asr_numeric_equivalent": {
+    "passed": 30,
+    "total": 30,
+    "percent": 100.0
+  },
+  "cer": {
+    "edits": 0,
+    "reference_characters": 255,
+    "percent": 0.0
+  },
+  "by_phrase": {
+    "start30": {
+      "input": "삼십 초 타이머 시작해 줘.",
+      "asr_exact": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "asr_numeric_equivalent": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "recognized": [
+        "삼십 초 타이머 시작해줘.",
+        "삼십 초 타이머 시작해줘.",
+        "삼십 초 타이머 시작해줘.",
+        "삼십 초 타이머 시작해줘.",
+        "삼십 초 타이머 시작해줘."
+      ],
+      "task_success": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      }
+    },
+    "change10": {
+      "input": "십 초 타이머로 바꿔 줘.",
+      "asr_exact": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "asr_numeric_equivalent": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "recognized": [
+        "십 초 타이머로 바꿔줘.",
+        "십 초 타이머로 바꿔줘.",
+        "십 초 타이머로 바꿔줘.",
+        "십 초 타이머로 바꿔줘.",
+        "십 초 타이머로 바꿔줘."
+      ],
+      "task_success": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      }
+    },
+    "change20": {
+      "input": "이십 초 타이머로 바꿔 줘.",
+      "asr_exact": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "asr_numeric_equivalent": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "recognized": [
+        "이십 초 타이머로 바꿔줘.",
+        "이십 초 타이머로 바꿔줘.",
+        "이십 초 타이머로 바꿔줘.",
+        "이십 초 타이머로 바꿔줘.",
+        "이십 초 타이머로 바꿔줘."
+      ],
+      "task_success": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      }
+    },
+    "stop": {
+      "input": "잠깐만.",
+      "asr_exact": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "asr_numeric_equivalent": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "recognized": [
+        "잠깐만.",
+        "잠깐만.",
+        "잠깐만.",
+        "잠깐만.",
+        "잠깐만."
+      ]
+    },
+    "resume": {
+      "input": "계속해.",
+      "asr_exact": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "asr_numeric_equivalent": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "recognized": [
+        "계속해",
+        "계속해",
+        "계속해",
+        "계속해",
+        "계속해"
+      ]
+    },
+    "recipe": {
+      "input": "소금은 빼고 샐러드 만드는 방법 알려 줘.",
+      "asr_exact": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "asr_numeric_equivalent": {
+        "passed": 5,
+        "total": 5,
+        "percent": 100.0
+      },
+      "recognized": [
+        "소금은 빼고 샐러드 만드는 방법 알려줘.",
+        "소금은 빼고 샐러드 만드는 방법 알려줘.",
+        "소금은 빼고 샐러드 만드는 방법 알려줘.",
+        "소금은 빼고 샐러드 만드는 방법 알려줘.",
+        "소금은 빼고 샐러드 만드는 방법 알려줘."
+      ]
+    }
+  },
+  "timer_task_success": {
+    "passed": 15,
+    "total": 15,
+    "percent": 100.0
+  },
+  "reentry_complete_flow": {
+    "passed": 5,
+    "total": 5,
+    "percent": 100.0
+  },
+  "stale_pcm_rejection_during_playback": {
+    "passed": 15,
+    "total": 15,
+    "percent": 100.0
+  },
+  "intentional_playback_interruptions": 15,
+  "recipe_quality": {
+    "passed": 0,
+    "total": 5,
+    "percent": 0.0
+  },
+  "recipe_audio_delivered": {
+    "passed": 5,
+    "total": 5,
+    "percent": 100.0
+  },
+  "complete_scenario_including_quality": {
+    "passed": 0,
+    "total": 5,
+    "percent": 0.0
+  },
+  "recipe_first_write_ms": {
+    "values": [
+      3736,
+      3620,
+      3601,
+      3584,
+      3644
+    ],
+    "median": 3620,
+    "maximum": 3736
+  }
+}

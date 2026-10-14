@@ -1,0 +1,8 @@
+{
+  "repo": "LiquidAI/LFM2.5-VL-450M",
+  "revision": "fc6221ca597f3315e4f82fc2df606783267b34ba",
+  "role": "optional observer: explicit object presence only; no recipe generation",
+  "runtime": "MNN OpenCL on validated MT6989; CPU fallback unmeasured",
+  "export": {"text_bits": 4, "block": 64, "vision_bits": 8, "tile_size": 512},
+  "acceptance": "limited fixture smoke; FT and human kitchen acceptance pending"
+}

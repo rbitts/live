@@ -14,11 +14,12 @@
 <section><div id="log" aria-live="polite"></div><form id="form"><input id="text" placeholder="텍스트로도 질문할 수 있습니다" maxlength="2000"><button>질문 보내기</button></form><p class="sub" id="metrics">실제 지연 시간은 대화가 끝나면 표시됩니다.</p></section></div>
 <script>
 const $ = id => document.getElementById(id);
-let ws, ctx, media, capture, source, mute, frameTimer, queueAt=0, playing=new Set(), epoch=-1, localBlocked=false, blockUntilEpoch=0, voiced=0, closing=false;
+let ws, ctx, media, capture, source, mute, frameTimer, frameCallback=null, frameRequestId=0, framePending=false, queueAt=0, playing=new Set(), epoch=-1, localBlocked=false, blockUntilEpoch=0, voiced=0, closing=false;
 function log(text){const p=document.createElement('div');p.textContent=text;$('log').append(p);while($('log').children.length>100)$('log').firstChild.remove();$('log').scrollTop=$('log').scrollHeight;}
-function send(message){if(ws?.readyState===1)ws.send(JSON.stringify(message));}
+function send(message){if(ws?.readyState!==1)return;if(ws.bufferedAmount>64000){log('입력 전송 지연으로 연결을 종료합니다.');stop();return;}ws.send(JSON.stringify(message));}
 function b64(buffer){let s='';for(const b of new Uint8Array(buffer))s+=String.fromCharCode(b);return btoa(s);}
 function clearAudio(){for(const node of playing){try{node.stop();}catch{}}playing.clear();queueAt=ctx?.currentTime||0;}
+function clearCapture(){if(frameCallback!==null)$('video').cancelVideoFrameCallback(frameCallback);frameCallback=null;framePending=false;frameRequestId++;}
 function interrupt(){blockUntilEpoch=epoch+1;localBlocked=true;clearAudio();send({type:'interrupt'});}
 function play(msg){
  if(localBlocked||msg.epoch!==epoch)return;
@@ -28,20 +29,21 @@ function play(msg){
  const node=ctx.createBufferSource();node.buffer=buffer;node.connect(ctx.destination);playing.add(node);node.onended=()=>playing.delete(node);
  queueAt=Math.max(queueAt,ctx.currentTime+.025);node.start(queueAt);queueAt+=buffer.duration;
 }
-async function stop(){if(closing)return;closing=true;clearInterval(frameTimer);clearAudio();media?.getTracks().forEach(t=>t.stop());capture?.disconnect();source?.disconnect();mute?.disconnect();ws?.close();if(ctx&&ctx.state!=='closed')await ctx.close();$('video').srcObject=null;$('start').disabled=false;$('stop').disabled=$('interrupt').disabled=true;$('state').textContent='종료 · 세션 기억 삭제됨';closing=false;}
+async function stop(){if(closing)return;closing=true;clearInterval(frameTimer);clearCapture();clearAudio();media?.getTracks().forEach(t=>t.stop());capture?.disconnect();source?.disconnect();mute?.disconnect();ws?.close();if(ctx&&ctx.state!=='closed')await ctx.close();$('video').srcObject=null;$('start').disabled=false;$('stop').disabled=$('interrupt').disabled=true;$('state').textContent='종료 · 세션 기억 삭제됨';closing=false;}
 $('start').onclick=async()=>{
  try{
- $('start').disabled=true;epoch=-1;localBlocked=false;blockUntilEpoch=0;voiced=0;
+ $('start').disabled=true;epoch=-1;localBlocked=false;blockUntilEpoch=0;voiced=0;framePending=false;
  ctx=new AudioContext();await ctx.resume();await ctx.audioWorklet.addModule('/worklet.js');
  media=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:$('camera').checked?{width:640,height:480}:false});$('video').srcObject=media;
+ if($('camera').checked&&!$('video').requestVideoFrameCallback)throw new Error('현재 브라우저에서는 새 카메라 프레임을 확인할 수 없습니다. 브라우저를 업데이트하거나 카메라를 꺼 주세요.');
  ws=new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}/ws`);
  ws.onopen=()=>{send({type:'profile',text:$('profile').value});$('state').textContent='듣는 중';$('stop').disabled=$('interrupt').disabled=false;
  source=ctx.createMediaStreamSource(media);capture=new AudioWorkletNode(ctx,'capture');mute=ctx.createGain();mute.gain.value=0;source.connect(capture).connect(mute).connect(ctx.destination);
  capture.port.onmessage=({data})=>{let sum=0;for(const s of data)sum+=s*s;voiced=Math.sqrt(sum/data.length)>=.018?voiced+1:0;if(voiced===3){blockUntilEpoch=epoch+1;localBlocked=true;clearAudio();}if(ws.bufferedAmount>64000){log('입력 전송 지연으로 연결을 종료합니다.');stop();return;}send({type:'audio',pcm:b64(data.buffer)});};
- const canvas=document.createElement('canvas');canvas.width=640;canvas.height=480;const draw=canvas.getContext('2d');
- frameTimer=setInterval(()=>{if(!$('camera').checked||!$('video').videoWidth)return;draw.drawImage($('video'),0,0,640,480);send({type:'frame',jpeg:canvas.toDataURL('image/jpeg',.65).split(',')[1]});},1000);
+ frameTimer=setInterval(()=>{if(framePending||!$('camera').checked||!$('video').videoWidth)return;framePending=true;send({type:'frame_request',request_id:++frameRequestId});},1000);
  };
  ws.onmessage=({data})=>{const msg=JSON.parse(data);
+ if(msg.type==='frame_ticket'){if(msg.request_id!==frameRequestId||!framePending||frameCallback!==null)return;if(!$('camera').checked||!$('video').videoWidth){framePending=false;return;}frameCallback=$('video').requestVideoFrameCallback(()=>{frameCallback=null;framePending=false;if(!$('camera').checked||ws?.readyState!==1)return;const canvas=document.createElement('canvas');canvas.width=640;canvas.height=480;canvas.getContext('2d').drawImage($('video'),0,0,640,480);send({type:'frame',ticket:msg.ticket,jpeg:canvas.toDataURL('image/jpeg',.65).split(',')[1]});});}
  if(msg.type==='playback_stop'){epoch=msg.epoch;clearAudio();}
  if(msg.type==='speech_started'){$('state').textContent='듣는 중';}
  if(msg.type==='response_start'&&msg.epoch===epoch&&msg.epoch>=blockUntilEpoch){localBlocked=false;$('state').textContent='답변 준비 중';}
@@ -55,8 +57,8 @@ $('start').onclick=async()=>{
  ws.onclose=()=>{if(!closing)stop();};ws.onerror=()=>log('연결 오류: 서버 상태를 확인해 주세요.');
  }catch(error){log(error.message);await stop();}
 };
-$('stop').onclick=stop;$('interrupt').onclick=interrupt;$('reset').onclick=()=>{interrupt();send({type:'reset'});};
-$('camera').onchange=()=>{for(const track of media?.getVideoTracks()||[])track.enabled=$('camera').checked;if(!$('camera').checked)send({type:'camera_off'});else if(media&&!media.getVideoTracks().length)log('카메라를 켜려면 종료 후 대화를 다시 시작해 주세요.');};
+$('stop').onclick=stop;$('interrupt').onclick=interrupt;$('reset').onclick=()=>{clearCapture();interrupt();send({type:'reset'});};
+$('camera').onchange=()=>{for(const track of media?.getVideoTracks()||[])track.enabled=$('camera').checked;if(!$('camera').checked){clearCapture();send({type:'camera_off'});}else if(media&&!media.getVideoTracks().length)log('카메라를 켜려면 종료 후 대화를 다시 시작해 주세요.');};
 $('profile').onchange=()=>send({type:'profile',text:$('profile').value});
 $('form').onsubmit=e=>{e.preventDefault();if(ws?.readyState!==1){log('먼저 대화를 시작해 주세요.');return;}interrupt();send({type:'text',text:$('text').value});$('text').value='';};
 window.addEventListener('pagehide',()=>{media?.getTracks().forEach(t=>t.stop());ws?.close();});

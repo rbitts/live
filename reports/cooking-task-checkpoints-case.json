@@ -1,0 +1,119 @@
+{
+  "case_id": "epic-P18_03-checkpoints-v1",
+  "video_id": "P18_03",
+  "sample_sha256": "d34a8e194e82c5d2cbc3160cb01bb970bdc7f55106267f352c5e3c96760a69a4",
+  "request": "샐러드 채소, 건포도, 오이, 오레가노, 소금, 올리브오일, 식초로 샐러드를 만들어요. 씻기와 손질 진행을 보고 다음 단계를 알려주세요.",
+  "steps": [
+    "샐러드 채소를 그릇에 담아 주세요.",
+    "건포도를 그릇에 넣어 주세요.",
+    "오이를 씻고 말려 주세요.",
+    "오이를 얇게 썰어 주세요.",
+    "썬 오이를 그릇에 넣어 주세요.",
+    "오레가노와 소금을 넣어 주세요.",
+    "올리브오일과 식초를 넣어 주세요.",
+    "샐러드를 섞어 주세요."
+  ],
+  "groups": [
+    {
+      "initial_step": 0,
+      "frames": [
+        {
+          "source_ms": 95012,
+          "file": "frames/095.jpg",
+          "sha256": "bf2a9dca249e68d8da400e13443aea08cc78aed32becb6d55cb569bca19ce55d"
+        },
+        {
+          "source_ms": 100017,
+          "file": "frames/100.jpg",
+          "sha256": "b8dec3b05d80b46382efc842600d5935213b0dd364f09c4ae7ee5f5581a27981"
+        },
+        {
+          "source_ms": 103003,
+          "file": "frames/103.jpg",
+          "sha256": "d2016c4a2867732cb97fba920096683908a5441e5e703f006ac011f824830a99"
+        },
+        {
+          "source_ms": 108008,
+          "file": "frames/108.jpg",
+          "sha256": "a672c73e39790027e3cacd428ae8b9f751d1a06e086af51a6ec369c0a4aba02e"
+        },
+        {
+          "source_ms": 119002,
+          "file": "frames/119.jpg",
+          "sha256": "32da0c55d1784bba55e50a74f8a9731470b00b077eeb27d955629600a5928c21"
+        },
+        {
+          "source_ms": 126009,
+          "file": "frames/126.jpg",
+          "sha256": "c1a398b15dcd5bea700d60064591d9fb01447aaaa7654b2b6c1d05d6f2594b4f"
+        },
+        {
+          "source_ms": 137004,
+          "file": "frames/137.jpg",
+          "sha256": "15cd3a55cc05de0b906a1e865cf1320d53f8df13610b1b3f08067b78c8bc86da"
+        },
+        {
+          "source_ms": 144011,
+          "file": "frames/144.jpg",
+          "sha256": "5b5ef2af7f5fa5cde6afd39bee6a3a8b3d6c6378df444ce54773f6dadb7f5afc"
+        },
+        {
+          "source_ms": 150017,
+          "file": "frames/150.jpg",
+          "sha256": "b4eaba5f5d69045732cf27341a5e4520a9466901aeddeace28eb6849d9f83048"
+        }
+      ]
+    },
+    {
+      "initial_step": 3,
+      "frames": [
+        {
+          "source_ms": 288004,
+          "file": "frames/288.jpg",
+          "sha256": "933423c2c06310308b1a86964a6b3ee9437299070a9ffde6483d6b178819d86d"
+        },
+        {
+          "source_ms": 299015,
+          "file": "frames/299.jpg",
+          "sha256": "96a88de589451bfa222fc466780f98b27f3185a2321dd4762b67eedd36620599"
+        },
+        {
+          "source_ms": 303003,
+          "file": "frames/303.jpg",
+          "sha256": "fdee8bf41bba3cd9e84eb193d5d530b451b26fdf67d9b6bb08836db7d6886091"
+        },
+        {
+          "source_ms": 310010,
+          "file": "frames/310.jpg",
+          "sha256": "aa47d3ff45fd5bb33e8f8ab6e42e300ee5c6b8b1b44e8b1a1631a3acef93e396"
+        },
+        {
+          "source_ms": 315015,
+          "file": "frames/315.jpg",
+          "sha256": "0fd7865386cb8996fc56a3203daf1d590c90228253c58431a1fbcceae312863e"
+        },
+        {
+          "source_ms": 318001,
+          "file": "frames/318.jpg",
+          "sha256": "91382b0d569810b9d365af2201109c5b7f7bc0d2bfc9d0edcac4b55c893aba7b"
+        },
+        {
+          "source_ms": 321004,
+          "file": "frames/321.jpg",
+          "sha256": "26e03f4dcdc00693db74811100d0aa6a986e3fea52e2bb2ee8c95346d8c2bd6a"
+        },
+        {
+          "source_ms": 325008,
+          "file": "frames/325.jpg",
+          "sha256": "694a7ed52f43b44dd1c22aadf9d8a0ef91fadac826fe548c753ae3e2d9f75101"
+        },
+        {
+          "source_ms": 333016,
+          "file": "frames/333.jpg",
+          "sha256": "cbe4791e159e71ece124aabe340a995ab4d3ecf9ac95dddfff53c4213092ca01"
+        }
+      ]
+    }
+  ],
+  "expected_labels_role": "Separate evaluator annotations.json; never submitted to inference."
+}

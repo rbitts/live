@@ -1,0 +1,48 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'dev.live.offline'
+    compileSdk 35
+    ndkVersion '27.2.12479018'
+    defaultConfig {
+        applicationId 'dev.live.offline'
+        minSdk 26
+        targetSdk 35
+        versionCode 28
+        versionName '0.28-task-harness'
+        ndk { abiFilters.addAll((project.findProperty('liveAbis') ?: 'arm64-v8a').split(',')) }
+        externalNativeBuild { cmake { arguments '-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON'; cppFlags '-std=c++17'; targets 'live_jni' } }
+    }
+    externalNativeBuild { cmake { path '../../native/CMakeLists.txt'; version '3.22.1' } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    buildTypes { debug { debuggable true } }
+    sourceSets.main.java.srcDir('../../shared/src/main/java')
+    sourceSets.main.assets.srcDir('../../.runtime/android-vad/assets')
+    sourceSets.debug.assets.srcDir('../../.runtime/android-asr/assets')
+    // Exclude non-target AAR libraries before merging (the static Sherpa x86 build
+    // still ships a shared runtime; this tablet uses its self-contained ARM build).
+    packaging { jniLibs {
+        def selected = (project.findProperty('liveAbis') ?: 'arm64-v8a').split(',')
+        ['arm64-v8a','armeabi-v7a','x86','x86_64'].findAll { !selected.contains(it) }.each {
+            excludes.add('lib/' + it + '/**')
+        }
+    } }
+}
+dependencies {
+    implementation files('../../.runtime/android-vad/onnxruntime-android-1.23.2.aar')
+    debugImplementation files('../../.runtime/android-asr/sherpa-onnx-static-link-onnxruntime-1.13.8.aar', '../../.runtime/android-asr/kotlin-stdlib-1.9.24.jar')
+}
+['vad', 'asr'].each { role ->
+    def taskName = role == 'vad' ? 'verifyVadArtifacts' : 'verifyAsrArtifacts'
+    tasks.register(taskName) {
+        doLast {
+            def manifest = new groovy.json.JsonSlurper().parse(file('../../configs/android-' + role + '.json'))
+            manifest.values().each { item ->
+                def artifact = file('../../.runtime/android-' + role + '/' + item.path)
+                if (!artifact.exists() || java.security.MessageDigest.getInstance('SHA-256').digest(artifact.bytes).encodeHex().toString() != item.sha256)
+                    throw new GradleException('Run .venv/bin/python scripts/prepare_android_' + role + '.py to prepare pinned artifacts')
+            }
+        }
+    }
+    def before = role == 'vad' ? 'preBuild' : 'preDebugBuild'
+    tasks.matching { it.name == before }.configureEach { dependsOn taskName }
+}

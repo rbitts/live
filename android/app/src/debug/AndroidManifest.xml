@@ -1,0 +1,33 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <instrumentation android:name=".AmbientCookingInstrumentation" android:targetPackage="dev.live.offline" android:label="Whole cooking video with natural voice and task memory" />
+    <instrumentation android:name=".CookingTaskInstrumentation" android:targetPackage="dev.live.offline" android:label="Real cooking task checkpoint evaluation" />
+    <instrumentation android:name=".VideoScenarioInstrumentation" android:targetPackage="dev.live.offline" android:label="Sample video and voice scenario" />
+    <instrumentation android:name=".ModelInstallInstrumentation" android:targetPackage="dev.live.offline" android:label="Explicit verified offline model installation" />
+    <instrumentation android:name=".VoiceInventoryInstrumentation" android:targetPackage="dev.live.offline" android:label="Installed Korean voice inventory" />
+    <instrumentation android:name=".ContextVoiceInstrumentation" android:targetPackage="dev.live.offline" android:label="Held-out task context speech" />
+    <instrumentation android:name=".AnswerFixInstrumentation" android:targetPackage="dev.live.offline" android:label="General answer quality diagnostic" />
+    <instrumentation android:name=".RecognitionFixInstrumentation" android:targetPackage="dev.live.offline" android:label="ASR context diagnostic" />
+    <instrumentation android:name=".RepeatedVoiceInstrumentation" android:targetPackage="dev.live.offline" android:label="Fixed repeated ASR task and answer quality measurement" />
+    <instrumentation android:name=".OutputContinuityInstrumentation" android:targetPackage="dev.live.offline" android:label="Uninterrupted timer output and playback continuity" />
+    <instrumentation android:name=".WorkingMemoryInstrumentation" android:targetPackage="dev.live.offline" android:label="Common state and tool re-entry through mock voice" />
+    <instrumentation android:name=".MockVoiceInstrumentation" android:targetPackage="dev.live.offline" android:label="Paced mock voice through real capture VAD ASR and interruption" />
+    <instrumentation android:name=".WhisperInstrumentation" android:targetPackage="dev.live.offline" android:label="On-device Whisper model and latency" />
+    <instrumentation android:name=".ZipformerInstrumentation" android:targetPackage="dev.live.offline" android:label="Korean streaming ASR real candidate" />
+    <instrumentation android:name=".AsrReferenceInstrumentation" android:targetPackage="dev.live.offline" android:label="Opt-in transient ASR reference comparison" />
+    <instrumentation android:name=".StreamingConversationInstrumentation" android:targetPackage="dev.live.offline" android:label="Streaming ASR speculative reasoning and sentence voice" />
+    <instrumentation android:name=".VoiceConversationInstrumentation" android:targetPackage="dev.live.offline" android:label="Voice only real model and cancellation" />
+    <instrumentation android:name=".VisionConversationInstrumentation" android:targetPackage="dev.live.offline" android:label="Repeated real visual conversation" />
+    <instrumentation android:name=".MicrophoneInstrumentation" android:targetPackage="dev.live.offline" android:label="Opt-in microphone diagnosis" />
+    <instrumentation android:name=".SpeechLatencyInstrumentation" android:targetPackage="dev.live.offline" android:label="Real synthesis and playback latency" />
+    <instrumentation android:name=".ProactiveInstrumentation" android:targetPackage="dev.live.offline" android:label="Proactive and memory real model checks" />
+    <instrumentation android:name=".CookingInstrumentation" android:targetPackage="dev.live.offline" android:label="Runtime cooking model and audio checks" />
+    <instrumentation android:name=".CookingProfileInstrumentation" android:targetPackage="dev.live.offline" android:label="Isolated cooking VLM comparison" />
+    <application>
+        <activity android:name=".ProfileActivity" android:exported="false" />
+    </application>
+    <instrumentation android:name=".ModelProfileInstrumentation" android:targetPackage="dev.live.offline" android:label="On-device latency diagnosis" />
+    <instrumentation android:name=".AudioBufferInstrumentation" android:targetPackage="dev.live.offline" android:label="Buffered PCM and cancellation verification" />
+    <instrumentation android:name=".PcSmokeInstrumentation" android:targetPackage="dev.live.offline" android:label="PC capture verification" />
+    <instrumentation android:name=".LiveWorkflowInstrumentation" android:targetPackage="dev.live.offline" android:label="Live workflow and real model verification" />
+    <instrumentation android:name=".LiveCancelInstrumentation" android:targetPackage="dev.live.offline" android:label="Real Android interruption verification" />
+</manifest>

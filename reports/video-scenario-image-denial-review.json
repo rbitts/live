@@ -1,0 +1,11 @@
+{
+  "source": "video-scenario-image-denial-failure.json",
+  "source_sha256": "6da247e3bb56da73772eedca9e5457c85746843666428b347095a5363f64d13b",
+  "round": 1,
+  "key": "visual_first",
+  "response_sha256": "804b67023a2d4105fc6919203525202b4e1b5bc2684157cf57c26e2e92f5e76a",
+  "image_sha256": "9f601a2e9ea074d56c596c46b97e4478a41af420bc2ffb8cf9f31d7b07dfb17f",
+  "pass": false,
+  "reason": "Saved JPEG visibly contains the rabbit on grass and inference logs images=1; answer denies being able to see an image. No decoder error was found. Exact root cause unproven.",
+  "fix": "0.25 conditions the system prompt on actual image attachment and refuses to save image-denial text as an observation. No expected objects/locations are supplied."
+}

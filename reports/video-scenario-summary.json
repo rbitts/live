@@ -1,0 +1,164 @@
+{
+  "app_version": "0.26-video-memory",
+  "results_sha256": "7b96bd41ca4b195ca6fc8d578d5435969e058d869a4c04deba2d22dcc25495ed",
+  "elapsed_ms": 670561,
+  "rounds": 3,
+  "turns": 39,
+  "software_scenario_pass": 3,
+  "recognition_normalized_exact": 26,
+  "recognition_denominator": 39,
+  "pcm_rejections": 39,
+  "turns_sent_during_playback": 12,
+  "first_cold_visual_write_ms": 21829,
+  "warmed_visual_first_write_ms": {
+    "n": 11,
+    "min": 7142,
+    "median": 10285,
+    "max": 15436
+  },
+  "memory_policy_first_write_ms": {
+    "n": 9,
+    "min": 951,
+    "median": 1556,
+    "max": 2235
+  },
+  "tool_first_write_ms": {
+    "n": 15,
+    "min": 939,
+    "median": 1224,
+    "max": 2018
+  },
+  "detected_to_stop_ms": {
+    "n": 12,
+    "min": 1,
+    "median": 3.0,
+    "max": 6
+  },
+  "frame_anchor_age_ms": {
+    "n": 12,
+    "min": 57,
+    "median": 303.0,
+    "max": 488
+  },
+  "capture_samples": [
+    3421440,
+    3285440,
+    3040320
+  ],
+  "monitor_drops": [
+    0,
+    0,
+    0
+  ],
+  "images": [
+    {
+      "round": 1,
+      "key": "visual_first",
+      "path": ".runtime/video-replay/final-evidence/evidence-1-visual_first.jpg",
+      "sha256": "9f601a2e9ea074d56c596c46b97e4478a41af420bc2ffb8cf9f31d7b07dfb17f",
+      "age_ms": 454,
+      "source_ms": 3971,
+      "latest_source_ms": 25802
+    },
+    {
+      "round": 1,
+      "key": "visual_detail",
+      "path": ".runtime/video-replay/final-evidence/evidence-1-visual_detail.jpg",
+      "sha256": "64fd3197d4231a591b013d6f6fadd1c3955ab71da6e7f09307cbd19394faef7f",
+      "age_ms": 488,
+      "source_ms": 40179,
+      "latest_source_ms": 55940
+    },
+    {
+      "round": 1,
+      "key": "visual_due",
+      "path": ".runtime/video-replay/final-evidence/evidence-1-visual_due.jpg",
+      "sha256": "6fec01741fd3f8f6b027698ad56321650a62ce7138ffd759c704c289fb9328b5",
+      "age_ms": 85,
+      "source_ms": 85362,
+      "latest_source_ms": 99023
+    },
+    {
+      "round": 1,
+      "key": "visual_compare",
+      "path": ".runtime/video-replay/final-evidence/evidence-1-visual_compare.jpg",
+      "sha256": "5cf53cac861300a5e44fa5d7ca4651af522c1b7d9ed9bae2c3f74ad5b73c57bd",
+      "age_ms": 188,
+      "source_ms": 132779,
+      "latest_source_ms": 147420
+    },
+    {
+      "round": 2,
+      "key": "visual_first",
+      "path": ".runtime/video-replay/final-evidence/evidence-2-visual_first.jpg",
+      "sha256": "2a446e36cc2fe9e7689f87185066448876aec886baa2b0a1ae5fab1503e8690f",
+      "age_ms": 271,
+      "source_ms": 3981,
+      "latest_source_ms": 11136
+    },
+    {
+      "round": 2,
+      "key": "visual_detail",
+      "path": ".runtime/video-replay/final-evidence/evidence-2-visual_detail.jpg",
+      "sha256": "2689667356203101febd51b4838a1548d13cb878233831dca7e3fedc9e80d897",
+      "age_ms": 424,
+      "source_ms": 28089,
+      "latest_source_ms": 39442
+    },
+    {
+      "round": 2,
+      "key": "visual_due",
+      "path": ".runtime/video-replay/final-evidence/evidence-2-visual_due.jpg",
+      "sha256": "6f60fef65fad09a6a4bff3b10a2c7747f01e0ba3015f7a2e1c21156ab19c305b",
+      "age_ms": 335,
+      "source_ms": 68858,
+      "latest_source_ms": 79397
+    },
+    {
+      "round": 2,
+      "key": "visual_compare",
+      "path": ".runtime/video-replay/final-evidence/evidence-2-visual_compare.jpg",
+      "sha256": "bb67c101baf73f9cb6236ca3594f7ec9af782995edf7b19ede0f1e305c0ef5c1",
+      "age_ms": 171,
+      "source_ms": 110581,
+      "latest_source_ms": 120390
+    },
+    {
+      "round": 3,
+      "key": "visual_first",
+      "path": ".runtime/video-replay/final-evidence/evidence-3-visual_first.jpg",
+      "sha256": "2a446e36cc2fe9e7689f87185066448876aec886baa2b0a1ae5fab1503e8690f",
+      "age_ms": 261,
+      "source_ms": 3984,
+      "latest_source_ms": 11612
+    },
+    {
+      "round": 3,
+      "key": "visual_detail",
+      "path": ".runtime/video-replay/final-evidence/evidence-3-visual_detail.jpg",
+      "sha256": "a2ba7565cc68dd1a030275fe5fb0eea6b8bfa886434a8165d937908e77f29754",
+      "age_ms": 468,
+      "source_ms": 28578,
+      "latest_source_ms": 38919
+    },
+    {
+      "round": 3,
+      "key": "visual_due",
+      "path": ".runtime/video-replay/final-evidence/evidence-3-visual_due.jpg",
+      "sha256": "d6dc62e03dbb8468dfdbc6359538868454c2720cd6fcfb48410edc4a63cc7388",
+      "age_ms": 57,
+      "source_ms": 68829,
+      "latest_source_ms": 77556
+    },
+    {
+      "round": 3,
+      "key": "visual_compare",
+      "path": ".runtime/video-replay/final-evidence/evidence-3-visual_compare.jpg",
+      "sha256": "5a6dd8407698594cb97e1ba2039d527b518783418b0446be6675cb0b137a1cc0",
+      "age_ms": 423,
+      "source_ms": 111304,
+      "latest_source_ms": 119972
+    }
+  ],
+  "semantic_acceptance": "See separate full-response and image review; software assertions do not grade answers."
+}

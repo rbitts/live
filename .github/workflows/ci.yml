@@ -11,3 +11,16 @@ jobs:
       - run: pip install -r requirements/core.lock
       - run: pip install --no-deps -e .
       - run: python -m pytest -q
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/test_web_capture.cjs
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Android observation memory policy
+        run: |
+          mkdir -p .runtime/ci-java
+          javac -d .runtime/ci-java android/app/src/main/java/dev/live/offline/ObservationMemory.java android/tests/dev/live/offline/ObservationMemoryTest.java
+          java -ea -cp .runtime/ci-java dev.live.offline.ObservationMemoryTest

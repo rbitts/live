@@ -1,0 +1,32 @@
+[
+  {
+    "round": 1,
+    "answer_sha256": "094c1dc82ce51a114fd9395dbfa3ddb0475b2d9a3d95650cffcec2f7bdde3ae7",
+    "pass": false,
+    "reason": "요청을 재진술할 뿐, 실행 가능한 샐러드 조리 동작이 없다. 제외 조건 언급만으로는 답변 성공이 아니다."
+  },
+  {
+    "round": 2,
+    "answer_sha256": "094c1dc82ce51a114fd9395dbfa3ddb0475b2d9a3d95650cffcec2f7bdde3ae7",
+    "pass": false,
+    "reason": "요청을 재진술할 뿐, 실행 가능한 샐러드 조리 동작이 없다. 제외 조건 언급만으로는 답변 성공이 아니다."
+  },
+  {
+    "round": 3,
+    "answer_sha256": "094c1dc82ce51a114fd9395dbfa3ddb0475b2d9a3d95650cffcec2f7bdde3ae7",
+    "pass": false,
+    "reason": "요청을 재진술할 뿐, 실행 가능한 샐러드 조리 동작이 없다. 제외 조건 언급만으로는 답변 성공이 아니다."
+  },
+  {
+    "round": 4,
+    "answer_sha256": "094c1dc82ce51a114fd9395dbfa3ddb0475b2d9a3d95650cffcec2f7bdde3ae7",
+    "pass": false,
+    "reason": "요청을 재진술할 뿐, 실행 가능한 샐러드 조리 동작이 없다. 제외 조건 언급만으로는 답변 성공이 아니다."
+  },
+  {
+    "round": 5,
+    "answer_sha256": "094c1dc82ce51a114fd9395dbfa3ddb0475b2d9a3d95650cffcec2f7bdde3ae7",
+    "pass": false,
+    "reason": "요청을 재진술할 뿐, 실행 가능한 샐러드 조리 동작이 없다. 제외 조건 언급만으로는 답변 성공이 아니다."
+  }
+]

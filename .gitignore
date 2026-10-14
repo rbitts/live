@@ -8,3 +8,8 @@ __pycache__/
 .env
 reports/private/
 .serena/
+.gradle/
+.cxx/
+android/local.properties
+android/**/build/
+.export.log

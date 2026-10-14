@@ -1,0 +1,61 @@
+{
+  "rows": [],
+  "capture_windows": [
+    {
+      "window": "segmented",
+      "samples": 33280,
+      "recognized": "시초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "wide",
+      "samples": 93120,
+      "recognized": "십 초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "lead400",
+      "samples": 39680,
+      "recognized": "시초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "tail400",
+      "samples": 39680,
+      "recognized": "시초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "both400",
+      "samples": 46080,
+      "recognized": "시초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "tail800",
+      "samples": 46080,
+      "recognized": "시초 타이머로 바꿔줘\n"
+    },
+    {
+      "window": "tail1200",
+      "samples": 52480,
+      "recognized": "시초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "tail2000",
+      "samples": 65280,
+      "recognized": "시초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "segmented_with_context",
+      "context": "타이머",
+      "recognized": "십 초 타이머로 바꿔줘.\n"
+    },
+    {
+      "window": "segmented_with_context",
+      "context": "타이머, 시간, 초, 분, 일 초, 이 초, 삼 초, 사 초, 오 초, 육 초, 칠 초, 팔 초, 구 초, 십 초, 이십 초, 삼십 초",
+      "recognized": "십 초 타이머로 바꿔줘.\n"
+    }
+  ],
+  "segmented_offset_samples": 6400,
+  "excluded_leading_peak": 0,
+  "excluded_leading_rms": 0,
+  "excluded_trailing_peak": 0,
+  "excluded_trailing_energy": 0,
+  "status": "completed"
+}

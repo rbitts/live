@@ -1,0 +1,62 @@
+{
+  "joiner-epoch-99-avg-1.int8.onnx": {
+    "url": "https://huggingface.co/k2-fsa/sherpa-onnx-streaming-zipformer-korean-2024-06-16/resolve/ba6078bca4daf3f0dd37f79d0ab505af71df14a6/joiner-epoch-99-avg-1.int8.onnx",
+    "path": "assets/zipformer-ko/joiner-epoch-99-avg-1.int8.onnx",
+    "sha256": "128b80a66a1f718488af8560f9d15895109b99ff3e573f0a0130e03774ef1ced"
+  },
+  "decoder-epoch-99-avg-1.onnx": {
+    "url": "https://huggingface.co/k2-fsa/sherpa-onnx-streaming-zipformer-korean-2024-06-16/resolve/ba6078bca4daf3f0dd37f79d0ab505af71df14a6/decoder-epoch-99-avg-1.onnx",
+    "path": "assets/zipformer-ko/decoder-epoch-99-avg-1.onnx",
+    "sha256": "b29cfb4575141e50a30a22b2c4579934f3d4f45b83c9c8c08c3aef5a3fa7abfc"
+  },
+  "encoder-epoch-99-avg-1.int8.onnx": {
+    "url": "https://huggingface.co/k2-fsa/sherpa-onnx-streaming-zipformer-korean-2024-06-16/resolve/ba6078bca4daf3f0dd37f79d0ab505af71df14a6/encoder-epoch-99-avg-1.int8.onnx",
+    "path": "assets/zipformer-ko/encoder-epoch-99-avg-1.int8.onnx",
+    "sha256": "8d0b1aa24fbedd4e3948564ab7facd151b8ce9b0c48fc987c541de2de3af5697"
+  },
+  "tokens.txt": {
+    "url": "https://huggingface.co/k2-fsa/sherpa-onnx-streaming-zipformer-korean-2024-06-16/resolve/ba6078bca4daf3f0dd37f79d0ab505af71df14a6/tokens.txt",
+    "path": "assets/zipformer-ko/tokens.txt",
+    "sha256": "016bdf0965029263b7ad01b742366ee542ef0bef38261510e8176ff6f2e9e668"
+  },
+  "kotlin-stdlib-1.9.24.jar": {
+    "url": "https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.9.24/kotlin-stdlib-1.9.24.jar",
+    "path": "kotlin-stdlib-1.9.24.jar",
+    "sha256": "858b902696da9cf585ab9d98ffc1c2712269828354dfe9107e3711b084a36468"
+  },
+  "SHERPA-LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/v1.13.8/LICENSE",
+    "path": "assets/SHERPA-LICENSE.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "sherpa-onnx-static-link-onnxruntime-1.13.8.aar": {
+    "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.8/sherpa-onnx-static-link-onnxruntime-1.13.8.aar",
+    "path": "sherpa-onnx-static-link-onnxruntime-1.13.8.aar",
+    "sha256": "b22c3fc1b6a45666d28892bb2f7694beeb77a8362d7ebd77c1a5431ec9435471"
+  },
+  "72m/decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx": {
+    "url": "https://huggingface.co/kangkyu/icefall-asr-ko-streaming-zipformer-72m/resolve/db24b58d22736349eaeb34cc181ad0f3debf9903/decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+    "path": "assets/zipformer-ko-72m/decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+    "sha256": "40c3c57ad27b45b59e27bec8bfc02f04d27c060aeb8e964ae2f87bd9f356bf7d"
+  },
+  "72m/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx": {
+    "url": "https://huggingface.co/kangkyu/icefall-asr-ko-streaming-zipformer-72m/resolve/db24b58d22736349eaeb34cc181ad0f3debf9903/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+    "path": "assets/zipformer-ko-72m/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+    "sha256": "5f2b6e5e92834849cfdbda3aaa355e6f39ff993f067794e4ab9d5cb993b15311"
+  },
+  "72m/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx": {
+    "url": "https://huggingface.co/kangkyu/icefall-asr-ko-streaming-zipformer-72m/resolve/db24b58d22736349eaeb34cc181ad0f3debf9903/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+    "path": "assets/zipformer-ko-72m/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx",
+    "sha256": "7d3bd9c1e9cf60efa5d5fed728fbd52d0f08139775f9e9002fd088b4d78f3e73"
+  },
+  "72m/tokens.txt": {
+    "url": "https://huggingface.co/kangkyu/icefall-asr-ko-streaming-zipformer-72m/resolve/db24b58d22736349eaeb34cc181ad0f3debf9903/tokens.txt",
+    "path": "assets/zipformer-ko-72m/tokens.txt",
+    "sha256": "435dfb9e0a2b6a79124f1a4d8f0f33a951b25384726e2e0d854f081533e6ec9d"
+  },
+  "72m-MODEL-CARD": {
+    "url": "https://huggingface.co/kangkyu/icefall-asr-ko-streaming-zipformer-72m/resolve/db24b58d22736349eaeb34cc181ad0f3debf9903/README.md",
+    "path": "assets/ZIPFORMER-72M-MODEL-CARD.md",
+    "sha256": "54ecf554d6df8b7e7e08f60286451f1fbffde059c81b3c549b2221311b84ba37"
+  }
+}

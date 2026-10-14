@@ -43,17 +43,30 @@ async def websocket(ws: WebSocket):
     async with active:
         backend = QwenBackend()
         session = Session(backend, ws.send_json)
+        ticket_mode = False
         try:
-            await ws.send_json({'type': 'ready', 'track': 'system-duplex'})
+            await ws.send_json({'type': 'ready', 'track': 'system-duplex',
+                                'protocol_version': 1, 'frame_capture': 'ticket-v1'})
             while True:
                 message = await ws.receive_json()
+                if not isinstance(message, dict):
+                    raise ValueError('message must be an object')
                 kind = message.get('type')
                 if kind == 'audio':
                     raw = message.get('pcm', '')
                     if len(raw) > 1800:
                         raise ValueError('audio packet too large')
                     await session.audio_chunk(np.frombuffer(base64.b64decode(raw, validate=True), dtype='<f4'))
+                elif kind == 'frame_request':
+                    request_id = message.get('request_id')
+                    if request_id is not None and (type(request_id) is not int or not 0 <= request_id <= 2**53-1):
+                        raise ValueError('frame request_id must be a nonnegative safe integer')
+                    ticket_mode = True
+                    await ws.send_json({'type': 'frame_ticket', 'ticket': session.issue_frame_ticket(),
+                                        'max_age_ms': 3000, 'request_id': request_id})
                 elif kind == 'frame':
+                    if ticket_mode and 'ticket' not in message:
+                        raise ValueError('ticket required after frame_request')
                     jpeg = message.get('jpeg', '')
                     if len(jpeg) > 400_000:
                         raise ValueError('frame too large')
@@ -61,9 +74,11 @@ async def websocket(ws: WebSocket):
                     if image.format != 'JPEG' or max(image.size) > 1280:
                         raise ValueError('expected JPEG up to 1280 pixels')
                     image.verify()
-                    session.frame(jpeg)
+                    if 'ticket' in message and not isinstance(message['ticket'], str):
+                        raise ValueError('frame ticket must be text')
+                    session.frame(jpeg, ticket=message.get('ticket'))
                 elif kind == 'camera_off':
-                    session.latest = None
+                    session.camera_off()
                 elif kind == 'interrupt':
                     await session.interrupt()
                 elif kind == 'text':

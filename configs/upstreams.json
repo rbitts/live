@@ -10,5 +10,25 @@
   "qwen-tts": {
     "url": "https://github.com/QwenLM/Qwen3-TTS.git",
     "revision": "022e286b98fbec7e1e916cb940cdf532cd9f488e"
+  },
+  "mnn": {
+    "url": "https://github.com/alibaba/MNN.git",
+    "revision": "9f097c5fdd48e0cac4468d4cc53a828794d96888"
+  },
+  "webrtcvad": {
+    "url": "https://github.com/wiseman/py-webrtcvad.git",
+    "revision": "e283ca41df3a84b0e87fb1f5cb9b21580a286b09"
+  },
+  "whisper-cpp": {
+    "url": "https://github.com/ggml-org/whisper.cpp.git",
+    "revision": "d1be6fde11ac6e0407606b4e42fe72d34add8037"
+  },
+  "vulkan-headers": {
+    "url": "https://github.com/KhronosGroup/Vulkan-Headers.git",
+    "revision": "c46850864f4661461b0f6cb9922c058ffea4915e"
+  },
+  "spirv-headers": {
+    "url": "https://github.com/KhronosGroup/SPIRV-Headers.git",
+    "revision": "86f980c731e62ae4eaf383d320449d71687936bf"
   }
 }

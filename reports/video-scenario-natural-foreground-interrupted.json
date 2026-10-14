@@ -1,0 +1,29 @@
+{
+  "rounds": [
+    {
+      "round": 1,
+      "turns": [
+        {
+          "key": "visual_first",
+          "input": "이 동물이 어디 있는지 봐 두고 기억해 줘.",
+          "during_playback": false,
+          "send_to_onset_ms": 830,
+          "old_pcm_rejected": true,
+          "detected_to_stop_ms": 1,
+          "timer_deferred_while_user_active": false,
+          "recognized": "이 동물이 어디 있는지 과두고 기억해줘.",
+          "goal": "이 동물이 어디 있는지 과두고 기억해줘.",
+          "send_to_final_ms": 4388
+        }
+      ]
+    }
+  ],
+  "planned_rounds": 3,
+  "status": "failed",
+  "input_voice": "ko-kr-x-koc-local",
+  "output_voice": "ko-KR-language",
+  "gpu_active": true,
+  "elapsed_ms": 28915,
+  "error": "java.lang.IllegalStateException: app left foreground",
+  "last_status": "관측을 확인하고 있습니다…"
+}

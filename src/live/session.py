@@ -27,14 +27,36 @@ class Session:
         self.frames = deque(maxlen=4)
         self.history = deque(maxlen=8)
         self.latest = None
+        self.frame_ticket = None
         self.pre_roll = deque(maxlen=10)
         self.audio = []
         self.speaking = False
         self.voiced = self.silent = 0
         self.closed = False
 
-    def frame(self, jpeg):
-        self.latest = Frame(jpeg, self.clock())
+    def issue_frame_ticket(self):
+        # One pending capture only. Its server issue time is a conservative
+        # lower bound for a compliant client's subsequent camera capture.
+        ticket = uuid.uuid4().hex
+        self.frame_ticket = (ticket, self.clock())
+        return ticket
+
+    def frame(self, jpeg, ticket=None):
+        captured_at = self.clock()
+        if ticket is not None:
+            pending = self.frame_ticket
+            if pending is None or ticket != pending[0]:
+                return False
+            self.frame_ticket = None
+            captured_at = pending[1]
+            if self.clock() - captured_at > 3:
+                return False
+        self.latest = Frame(jpeg, captured_at)
+        return True
+
+    def camera_off(self):
+        self.latest = None
+        self.frame_ticket = None
 
     async def interrupt(self):
         self.epoch += 1
@@ -125,6 +147,7 @@ class Session:
         self.frames.clear()
         self.history.clear()
         self.latest = None
+        self.frame_ticket = None
         self.profile = ''
         self.audio.clear()
         self.pre_roll.clear()
@@ -139,4 +162,5 @@ class Session:
         self.frames.clear()
         self.history.clear()
         self.latest = None
+        self.frame_ticket = None
         self.audio.clear()

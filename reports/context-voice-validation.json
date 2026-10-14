@@ -1,0 +1,29 @@
+{
+  "turns": [
+    {
+      "input": "구십 초 타이머 시작해 줘.",
+      "context": "",
+      "recognized": "구십 초 타이머 시작해줘.",
+      "goal": "90초 타이머"
+    },
+    {
+      "input": "사십 초 타이머로 바꿔 줘.",
+      "context": "타이머",
+      "recognized": "사십 초 타이머로 바꿔줘.",
+      "goal": "40초 타이머"
+    },
+    {
+      "input": "오십 초 타이머로 바꿔 줘.",
+      "context": "타이머",
+      "recognized": "오십 초 타이머로 바꿔줘.",
+      "goal": "50초 타이머"
+    },
+    {
+      "input": "이 사건의 시초가 뭐야?",
+      "context": "타이머",
+      "recognized": "이 사건의 시초가 뭐야",
+      "goal": "50초 타이머"
+    }
+  ],
+  "status": "completed"
+}

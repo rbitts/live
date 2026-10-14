@@ -124,3 +124,46 @@ async def test_reset_erases_inflight_audio_and_profile():
     await session.reset()
     assert not session.audio and not session.pre_roll and not session.profile
     assert not session.speaking and session.latest is None
+
+
+@pytest.mark.asyncio
+async def test_camera_ticket_bounds_capture_age_including_network_delay():
+    async def emit(event): pass
+    now = [100.0]
+    backend = Backend()
+    session = Session(backend, emit, clock=lambda: now[0])
+    ticket = session.issue_frame_ticket()
+    now[0] += 2
+    assert session.frame('fresh', ticket)
+    assert session.latest.captured_at == 100.0
+    # Age starts before device capture, not when the packet finally arrives.
+    now[0] += 1.01
+    await session.text('지금은?')
+    await session.response
+    assert backend.inputs[-1][0] is None
+    ticket = session.issue_frame_ticket()
+    now[0] += 3.01
+    assert not session.frame('delayed', ticket)
+    assert session.latest.jpeg == 'fresh'
+    await session.close()
+
+
+@pytest.mark.asyncio
+async def test_tickets_are_one_use_bounded_and_invalidated_on_reset_or_camera_off():
+    async def emit(event): pass
+    session = Session(Backend(), emit)
+    old = session.issue_frame_ticket()
+    new = session.issue_frame_ticket()
+    assert not session.frame('old', old)
+    assert session.frame('new', new)
+    assert not session.frame('replay', new)
+    ticket = session.issue_frame_ticket()
+    session.camera_off()
+    assert not session.frame('camera-off-race', ticket)
+    assert session.latest is None
+    ticket = session.issue_frame_ticket()
+    await session.reset()
+    assert not session.frame('before-reset', ticket)
+    ticket = session.issue_frame_ticket()
+    await session.close()
+    assert not session.frame('after-close', ticket)

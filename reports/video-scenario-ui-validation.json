@@ -1,0 +1,9 @@
+{
+  "app_version": "0.26-video-memory",
+  "flow": "camera long-press -> sample selector -> system Downloads -> MP4 selection -> visible rabbit playback/V badge -> pause capture, selected source retained",
+  "sample_device_path": "/sdcard/Download/Live-sample-BigBuckBunny-20261014.mp4",
+  "sample_sha256": "23f448e42d837f0d49929959c0eb92e81d2e760de11a0d917978940fa0cbc90e",
+  "result": "pass",
+  "left_running_capture": false,
+  "evidence_dir": ".runtime/video-replay/ui26-*"
+}

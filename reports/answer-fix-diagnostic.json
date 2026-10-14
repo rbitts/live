@@ -1,0 +1,27 @@
+{
+  "input_mode": "direct text, real VLM",
+  "turns": [
+    {
+      "epoch": 1,
+      "first_text_ms": 2285,
+      "first_audio_write_ms": -1,
+      "response": "소금은 빼고 샐러드 만드는 방법 알려 줘.\n\n",
+      "completed_response": "소금은 빼고 샐러드 만드는 방법 알려 줘.\n\n먼저 채소와 기름을 준비한 뒤 불을 켜서 볶습니다.\n이후 소금 없이 모든 재료를 섞어 끓입니다.\n마지막으로 뚜껑을 닫아 10분간 끓입니다."
+    },
+    {
+      "epoch": 2,
+      "first_text_ms": 2660,
+      "first_audio_write_ms": -1,
+      "response": "오이를 씻고 보관하는 방법 알려 줘.\n\n",
+      "completed_response": "오이를 씻고 보관하는 방법 알려 줘.\n\n먼저 오이를 흐르는 물에 씻습니다.\n이후 깨끗한 용기에 담아 냉장 보관합니다."
+    },
+    {
+      "epoch": 3,
+      "first_text_ms": 2886,
+      "first_audio_write_ms": -1,
+      "response": "하나 더하기 하나는 얼마야?\n\n",
+      "completed_response": "하나 더하기 하나는 얼마야?\n\n하나 더하기 하나는 2입니다."
+    }
+  ],
+  "status": "completed"
+}

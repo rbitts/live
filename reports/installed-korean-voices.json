@@ -1,0 +1,69 @@
+{
+  "engine": "com.google.android.tts",
+  "default_voice": "Voice[Name: ko-KR-language, locale: ko_KR, quality: 400, latency: 200, requiresNetwork: false, features: [networkTimeoutMs, legacySetLanguageVoice, networkRetriesCount]]",
+  "voices": [
+    {
+      "name": "ko-kr-x-ism-local",
+      "locale": "ko-KR",
+      "network": false,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    },
+    {
+      "name": "ko-kr-x-ism-network",
+      "locale": "ko-KR",
+      "network": true,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    },
+    {
+      "name": "ko-kr-x-kob-network",
+      "locale": "ko-KR",
+      "network": true,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    },
+    {
+      "name": "ko-kr-x-koc-network",
+      "locale": "ko-KR",
+      "network": true,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    },
+    {
+      "name": "ko-kr-x-kod-network",
+      "locale": "ko-KR",
+      "network": true,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    },
+    {
+      "name": "ko-KR-language",
+      "locale": "ko-KR",
+      "network": false,
+      "quality": 400,
+      "features": "[networkTimeoutMs, legacySetLanguageVoice, networkRetriesCount]"
+    },
+    {
+      "name": "ko-kr-x-kob-local",
+      "locale": "ko-KR",
+      "network": false,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    },
+    {
+      "name": "ko-kr-x-kod-local",
+      "locale": "ko-KR",
+      "network": false,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    },
+    {
+      "name": "ko-kr-x-koc-local",
+      "locale": "ko-KR",
+      "network": false,
+      "quality": 400,
+      "features": "[networkTimeoutMs, networkRetriesCount]"
+    }
+  ]
+}

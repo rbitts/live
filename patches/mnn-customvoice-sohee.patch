@@ -1,0 +1,216 @@
+diff --git a/transformers/llm/engine/src/llm.cpp b/transformers/llm/engine/src/llm.cpp
+index 0bd1a45..7ca9c29 100644
+--- a/transformers/llm/engine/src/llm.cpp
++++ b/transformers/llm/engine/src/llm.cpp
+@@ -857,6 +857,23 @@ void Llm::updateContext(int seq_len, int gen_len) {
+     mContext->gen_seq_len += gen_len;
+ }
+ 
++// Byte-level tokenizers may emit a partial UTF-8 scalar. Permit an unfinished
++// suffix, but never a token that makes the accumulated byte stream invalid.
++static bool validUtf8Prefix(const std::string& text, bool allowIncomplete) {
++    for (size_t i=0; i<text.size();) {
++        unsigned char a=text[i++]; if(a<0x80) continue;
++        int count=a>=0xC2 && a<=0xDF?1:a>=0xE0 && a<=0xEF?2:a>=0xF0 && a<=0xF4?3:-1;
++        if(count<0) return false;
++        for(int j=0;j<count;++j) {
++            if(i==text.size()) return allowIncomplete;
++            unsigned char b=text[i++];
++            if(b<0x80 || b>0xBF) return false;
++            if(j==0 && ((a==0xE0 && b<0xA0)||(a==0xED && b>=0xA0)||(a==0xF0 && b<0x90)||(a==0xF4 && b>=0x90))) return false;
++        }
++    }
++    return true;
++}
++
+ int Llm::sample(VARP logits, int offset, int size) {
+     MNN::Express::ExecutorScope s(mExecutor);
+     auto logitsShape = logits->getInfo()->dim;
+@@ -871,6 +888,23 @@ int Llm::sample(VARP logits, int offset, int size) {
+         logits = _Const(logitsPtr + offset, {size}, NHWC, halide_type_of<float>());
+     }
+     auto token_id = mSampler->sample(logits);
++    if (mConfig->config_.value("enforce_utf8", false)) {
++        std::vector<float> filtered;
++        for(int attempt=0;attempt<256 && token_id>=0;++attempt) {
++            bool stop=is_stop(token_id);
++            if(validUtf8Prefix(mContext->generate_str + (stop?"":tokenizer_decode(token_id)), !stop)) return token_id;
++            if(filtered.empty()) {
++                const float* values=logits->readMap<float>();
++                if(!values) return -1;
++                filtered.assign(values,values+logits->getInfo()->dim.back());
++            }
++            if(token_id>=static_cast<int>(filtered.size())) return -1;
++            filtered[token_id]=-std::numeric_limits<float>::infinity();
++            auto constrained=_Const(filtered.data(),{static_cast<int>(filtered.size())},NHWC,halide_type_of<float>());
++            token_id=mSampler->sample(constrained);
++        }
++        return -1;
++    }
+     return token_id;
+ }
+ 
+diff --git a/transformers/llm/engine/src/omni.cpp b/transformers/llm/engine/src/omni.cpp
+index 76aa3d8..3c00a19 100644
+--- a/transformers/llm/engine/src/omni.cpp
++++ b/transformers/llm/engine/src/omni.cpp
+@@ -2767,14 +2767,16 @@ bool Talker::load() {
+                                   Module::destroy);
+         mQwen3RuntimeManager->setExternalFile("");
+ 
++        if (mConfig->config_.value("custom_voice_speaker_id", -1) < 0) {
+         mQwen3RuntimeManager->setExternalFile(mConfig->speaker_encoder_weight().c_str());
+         mQwen3SpeakerEncoder.reset(Module::load({"mels"}, {"speaker_embedding"},
+                                                 mConfig->speaker_encoder_model().c_str(), mQwen3RuntimeManager,
+                                                 &module_config),
+                                    Module::destroy);
+         mQwen3RuntimeManager->setExternalFile("");
++        }
+         if (!mModule || !mQwen3PromptEmbedder || !mQwen3AudioCodePredictor || !mQwen3CodecEmbedder || !mQwen3SpeechDecoder ||
+-            !mQwen3SpeakerEncoder) {
++            (!mQwen3SpeakerEncoder && mConfig->config_.value("custom_voice_speaker_id", -1) < 0)) {
+             return false;
+         }
+         mDiskEmbedding.reset(new DiskEmbedding(mConfig, mConfig->talker_embedding_file()));
+@@ -2783,7 +2785,8 @@ bool Talker::load() {
+         mQwen3AudioCodePredictorEmbedding.reset(
+             new DiskEmbedding(mConfig, mConfig->audio_code_predictor_embedding_file(), hiddenSize));
+         mMaxNewTokens = mConfig->talker_max_new_tokens();
+-        set_config("{\"sampler_type\":\"greedy\"}");
++        // Respect caller sampling configuration. Greedy CustomVoice generation
++        // can repeat silence until the frame cap, including in the HF reference.
+         mSampler.reset(Sampler::createSampler(mContext, mConfig));
+         mContext->status = LlmStatus::RUNNING;
+         return true;
+@@ -3326,7 +3329,11 @@ int Talker::sample(Express::VARP logits, int offset, int size) {
+ }
+ 
+ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const std::string& refAudio) {
++    // Calls are serialized by the owner. A completed cooperative cancellation
++    // must not poison the next utterance.
++    if (mContext->status == LlmStatus::USER_CANCEL) mContext->status = LlmStatus::RUNNING;
+     CHECK_LLM_RUNNING_RET(mContext, false);
++    mContext->prefill_us = mContext->decode_us = mContext->audio_us = 0;
+     MNN::Express::ExecutorScope s(mExecutor);
+     if (!isQwen3TTSTalker(mConfig)) {
+         MNN_ERROR("[Error]: generateQwen3TTS called on non-qwen3_tts talker\n");
+@@ -3356,6 +3363,11 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+         return false;
+     }
+     mContext->prompt_len = static_cast<int>(inputIds.size());
++    if (std::getenv("LIVE_TTS_TRACE")) {
++        std::cerr << "TTS input ids:";
++        for (int id : inputIds) std::cerr << " " << id;
++        std::cerr << std::endl;
++    }
+     mContext->history_tokens = inputIds;
+     mContext->output_tokens.clear();
+     mContext->gen_seq_len = 0;
+@@ -3369,6 +3381,14 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+     std::vector<int> textIds(inputIds.begin() + 6, inputIds.end());
+     std::vector<int> ttsIds{mConfig->tts_bos_token_id(), mConfig->tts_eos_token_id(), mConfig->tts_pad_token_id()};
+     VARP speakerEmbedding = nullptr;
++    const int customVoiceSpeakerId = mConfig->config_.value("custom_voice_speaker_id", -1);
++    if (customVoiceSpeakerId >= 0 && refAudio.empty()) {
++        speakerEmbedding = makeEmbeddingInput(mDiskEmbedding.get(), {customVoiceSpeakerId}, hiddenSize);
++        if (speakerEmbedding.get() == nullptr) {
++            MNN_ERROR("[Error]: failed to load CustomVoice speaker embedding\n");
++            return false;
++        }
++    }
+     if (!refAudio.empty()) {
+ #ifdef LLM_SUPPORT_AUDIO
+         speakerEmbedding = makeQwen3TTSSpeakerEmbedding(mQwen3SpeakerEncoder.get(), refAudio,
+@@ -3400,6 +3420,10 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+     }
+     auto promptInfo = promptOutputs[0]->getInfo();
+     auto embeddings = readTensorVector<float>(promptOutputs[0]);
++    if (const char* trace = std::getenv("LIVE_TTS_TRACE")) {
++        std::ofstream dump(std::string(trace) + ".prompt.f32", std::ios::binary);
++        dump.write(reinterpret_cast<const char*>(embeddings.data()), embeddings.size()*sizeof(float));
++    }
+     if (!promptInfo || promptInfo->dim.size() != 3 || embeddings.empty()) {
+         MNN_ERROR("[Error]: invalid qwen3_tts prompt embeddings\n");
+         mContext->status = LlmStatus::INTERNAL_ERROR;
+@@ -3408,6 +3432,30 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+     int seqLen = promptInfo->dim[1];
+     std::vector<int> generatedCodes;
+     generatedCodes.reserve(maxFrames * codeGroups);
++    const int chunkFrames = mConfig->config_.value("tts_chunk_frames", 0);
++    if (chunkFrames < 0 || chunkFrames > 32) return false;
++    int emittedFrames = 0;
++    auto emitAudio = [&](bool final) {
++        int frames = static_cast<int>(generatedCodes.size() / codeGroups);
++        if (frames == emittedFrames) return final ? mWavformCallback(nullptr, 0, true) : true;
++        int begin = std::max(0, emittedFrames - 25);
++        int count = frames - begin;
++        auto codes = makeTensorInput<int>({1, codeGroups, count});
++        auto ptr = codes->writeMap<int>();
++        for (int g = 0; g < codeGroups; ++g)
++            for (int t = 0; t < count; ++t)
++                ptr[g * count + t] = generatedCodes[(begin + t) * codeGroups + g];
++        MNN::Timer timer;
++        auto audio = mQwen3SpeechDecoder->onForward({codes});
++        mContext->audio_us += timer.durationInUs();
++        if (audio.size() != 1 || !audio[0]->getInfo() || !audio[0]->readMap<float>()) return false;
++        int skip = (emittedFrames - begin) * mConfig->speech_decoder_upsample_rate();
++        int samples = audio[0]->getInfo()->size - skip;
++        if (samples <= 0) return false;
++        bool ok = mWavformCallback(audio[0]->readMap<float>() + skip, samples, final);
++        emittedFrames = frames;
++        return ok;
++    };
+ 
+     const bool cpIncremental = mConfig->audio_code_predictor_incremental();
+     VARP cpMask, cpPos;
+@@ -3450,6 +3498,11 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+         mContext->status = LlmStatus::INTERNAL_ERROR;
+         return false;
+     }
++    if (const char* trace = std::getenv("LIVE_TTS_TRACE")) {
++        auto logits = readTensorVector<float>(talkerOutputs[0]);
++        std::ofstream dump(std::string(trace) + ".logits.f32", std::ios::binary);
++        dump.write(reinterpret_cast<const char*>(logits.data()), logits.size()*sizeof(float));
++    }
+ 
+     // Decode-step inputs: fixed shapes, only the position value changes per frame.
+     VARP decodeMask = scalarMask ? makeScalarZeroMask() : makeTensorInput<float>({1, 1, 1, 1});
+@@ -3485,6 +3538,12 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+ 
+     MNN::Timer decodeTimer;
+     for (int step = 0; step < maxFrames; ++step) {
++        // Zero-length callback polls the owner's response epoch every codec
++        // frame; cancelled utterances never wait for a full audio chunk.
++        if (!mWavformCallback(nullptr, 0, false)) {
++            mContext->status = LlmStatus::USER_CANCEL;
++            return false;
++        }
+         int firstCode = mSampler->sample(talkerOutputs[0], firstCodeCandidates);
+         if (firstCode == codecEosToken) {
+             break;
+@@ -3567,6 +3626,12 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+         generatedCodes.insert(generatedCodes.end(), frameCodes.begin(), frameCodes.end());
+         mContext->output_tokens.insert(mContext->output_tokens.end(), frameCodes.begin(), frameCodes.end());
+         mContext->gen_seq_len = step + 1;
++        if (chunkFrames && (step + 1 - emittedFrames) >= chunkFrames) {
++            if (!emitAudio(false)) {
++                mContext->status = LlmStatus::USER_CANCEL;
++                return false;
++            }
++        }
+ 
+         if (step + 1 >= maxFrames) {
+             break;
+@@ -3613,6 +3678,12 @@ bool Talker::generateQwen3TTS(const std::string& prompt, int maxFrames, const st
+         mContext->status = LlmStatus::INTERNAL_ERROR;
+         return false;
+     }
++    if (chunkFrames) {
++        bool ok = emitAudio(true);
++        mContext->status = !ok ? LlmStatus::USER_CANCEL :
++            (frames >= maxFrames ? LlmStatus::MAX_TOKENS_FINISHED : LlmStatus::NORMAL_FINISHED);
++        return ok;
++    }
+     auto decoderCodes = makeTensorInput<int>({1, codeGroups, frames});
+     auto codePtr = decoderCodes->writeMap<int>();
+     for (int g = 0; g < codeGroups; ++g) {

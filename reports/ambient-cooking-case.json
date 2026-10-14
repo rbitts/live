@@ -1,0 +1,18 @@
+{
+  "case_id": "epic-P18_03-whole-native-observer-v2",
+  "video_id": "P18_03",
+  "sample_sha256": "d34a8e194e82c5d2cbc3160cb01bb970bdc7f55106267f352c5e3c96760a69a4",
+  "request": "샐러드 채소, 건포도, 오이, 오레가노, 소금, 올리브오일, 식초로 샐러드를 만들어요. 씻기와 손질 진행을 보고 다음 단계를 알려주세요.",
+  "steps": [
+    "샐러드 채소를 그릇에 담아 주세요.",
+    "건포도를 그릇에 넣어 주세요.",
+    "오이를 씻고 말려 주세요.",
+    "오이를 얇게 썰어 주세요.",
+    "썬 오이를 그릇에 넣어 주세요.",
+    "오레가노와 소금을 넣어 주세요.",
+    "올리브오일과 식초를 넣어 주세요.",
+    "샐러드를 섞어 주세요."
+  ],
+  "expected_labels_role": "Separate evaluator annotations.json; never submitted to inference.",
+  "runtime_rule": "No annotation timestamps or phase corrections; actual native model output only."
+}

@@ -1,0 +1,107 @@
+{
+  "source_url": "https://media.w3.org/2010/05/bunny/trailer.mp4",
+  "source_sha256": "b2ded9ae5a20fa36ca8cec49ef923bffb5e1a51d9e8c1f8336273d2fa9d35ff0",
+  "output_sha256": "23f448e42d837f0d49929959c0eb92e81d2e760de11a0d917978940fa0cbc90e",
+  "attribution": "(c) copyright 2008, Blender Foundation / www.bigbuckbunny.org",
+  "license_url": "https://peach.blender.org/about/",
+  "duration_s": 300,
+  "fps": 24,
+  "size": [
+    640,
+    360
+  ],
+  "audio": false,
+  "editing": "First 60s rabbit, next 30s small animals, final 210s forest; each repeats a moving excerpt, not continuous original action.",
+  "sections": [
+    {
+      "start_s": 0,
+      "end_s": 30,
+      "source_s": [
+        10,
+        11
+      ],
+      "reviewed_scene": "large light rabbit, grass, sky"
+    },
+    {
+      "start_s": 30,
+      "end_s": 60,
+      "source_s": [
+        10,
+        11
+      ],
+      "reviewed_scene": "large light rabbit, grass, sky"
+    },
+    {
+      "start_s": 60,
+      "end_s": 90,
+      "source_s": [
+        15,
+        15.5
+      ],
+      "reviewed_scene": "three small animals by a tree"
+    },
+    {
+      "start_s": 90,
+      "end_s": 120,
+      "source_s": [
+        5,
+        6
+      ],
+      "reviewed_scene": "tree, grass, dark hole at its base; no rabbit"
+    },
+    {
+      "start_s": 120,
+      "end_s": 150,
+      "source_s": [
+        5,
+        6
+      ],
+      "reviewed_scene": "tree, grass, dark hole at its base; no rabbit"
+    },
+    {
+      "start_s": 150,
+      "end_s": 180,
+      "source_s": [
+        5,
+        6
+      ],
+      "reviewed_scene": "tree, grass, dark hole at its base; no rabbit"
+    },
+    {
+      "start_s": 180,
+      "end_s": 210,
+      "source_s": [
+        5,
+        6
+      ],
+      "reviewed_scene": "tree, grass, dark hole at its base; no rabbit"
+    },
+    {
+      "start_s": 210,
+      "end_s": 240,
+      "source_s": [
+        5,
+        6
+      ],
+      "reviewed_scene": "tree, grass, dark hole at its base; no rabbit"
+    },
+    {
+      "start_s": 240,
+      "end_s": 270,
+      "source_s": [
+        5,
+        6
+      ],
+      "reviewed_scene": "tree, grass, dark hole at its base; no rabbit"
+    },
+    {
+      "start_s": 270,
+      "end_s": 300,
+      "source_s": [
+        5,
+        6
+      ],
+      "reviewed_scene": "tree, grass, dark hole at its base; no rabbit"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "real model, chronological checkpoint images; no paced video\/audio or human acceptance",
+  "gpu_active": true,
+  "app_version": "0.27-task-observation",
+  "case_sha256": "0cbc629d5c97303be88c16ac39d3eebdf7e1e198708bf691255f89d9d69e39cc",
+  "groups": [
+    {
+      "initial_state": "사용자가 요청한 요리·조건: 샐러드 채소, 건포도, 오이, 오레가노, 소금, 올리브오일, 식초로 샐러드를 만들어요. 씻기와 손질 진행을 보고 다음 단계를 알려주세요.\n진행 상태: 진행 중\n지금 안내할 단계(완료 미확인): 샐러드 채소를 그릇에 담아 주세요.\n앞으로 할 단계: 건포도를 그릇에 넣어 주세요.\n앞으로 할 단계: 오이를 씻고 말려 주세요.\n앞으로 할 단계: 오이를 얇게 썰어 주세요.\n앞으로 할 단계: 썬 오이를 그릇에 넣어 주세요.\n앞으로 할 단계: 오레가노와 소금을 넣어 주세요.\n앞으로 할 단계: 올리브오일과 식초를 넣어 주세요.\n앞으로 할 단계: 샐러드를 섞어 주세요.",
+      "setup": "Prior steps explicitly confirmed in fixture setup; not visual acceptance.",
+      "observations": [
+        {}
+      ]
+    }
+  ],
+  "error": "java.nio.file.AccessDeniedException: \/storage\/emulated\/0\/Android\/data\/dev.live.offline\/files\/frames\/095.jpg"
+}

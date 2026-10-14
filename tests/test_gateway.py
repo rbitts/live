@@ -30,3 +30,45 @@ def test_cross_origin_websocket_is_rejected():
         with pytest.raises(WebSocketDisconnect):
             with client.websocket_connect('/ws', headers={'origin':'https://evil.example'}):
                 pass
+
+
+def test_mobile_capture_ticket_protocol_and_invalid_ticket_type():
+    import base64
+    import io
+    from PIL import Image
+    image = io.BytesIO()
+    Image.new('RGB', (8, 8), 'red').save(image, format='JPEG')
+    jpeg = base64.b64encode(image.getvalue()).decode()
+    with TestClient(app) as client:
+        with client.websocket_connect('/ws') as ws:
+            ready = ws.receive_json()
+            assert ready['protocol_version'] == 1 and ready['frame_capture'] == 'ticket-v1'
+            ws.send_json({'type': 'frame_request', 'request_id': 7})
+            ticket = ws.receive_json()
+            assert ticket['type'] == 'frame_ticket' and ticket['max_age_ms'] == 3000
+            assert ticket['request_id'] == 7
+            ws.send_json({'type': 'frame', 'ticket': ticket['ticket'], 'jpeg': jpeg})
+            ws.send_json({'type': 'camera_off'})
+            ws.send_json({'type': 'reset'})
+            assert ws.receive_json()['type'] == 'playback_stop'
+            assert ws.receive_json()['type'] == 'reset_done'
+            ws.send_json({'type': 'frame', 'ticket': None, 'jpeg': jpeg})
+            assert ws.receive_json()['type'] == 'error'
+
+
+def test_mobile_capture_cannot_downgrade_to_arrival_time_freshness():
+    with TestClient(app) as client:
+        with client.websocket_connect('/ws') as ws:
+            ws.receive_json()
+            ws.send_json({'type': 'frame_request'})
+            ws.receive_json()
+            ws.send_json({'type': 'frame', 'jpeg': ''})
+            assert ws.receive_json()['message'] == 'ticket required after frame_request'
+
+
+def test_invalid_capture_request_id_is_rejected():
+    with TestClient(app) as client:
+        with client.websocket_connect('/ws') as ws:
+            ws.receive_json()
+            ws.send_json({'type': 'frame_request', 'request_id': True})
+            assert ws.receive_json()['type'] == 'error'
